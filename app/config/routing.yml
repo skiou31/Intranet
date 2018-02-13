@@ -1,3 +1,7 @@
 hei_core:
     resource: "@HEICoreBundle/Resources/config/routing.yml"
     prefix:   /
+
+hei_contact:
+    resource:  "@HEIContactBundle/Resources/config/routing.yml"
+    prefix:    /contact

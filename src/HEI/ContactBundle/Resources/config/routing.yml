@@ -1,1 +1,3 @@
-
+hei_contact_add:
+    path:      /add
+    defaults:  { _controller: HEIContactBundle:Contact:add }

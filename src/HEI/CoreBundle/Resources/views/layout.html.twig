@@ -3,11 +3,39 @@
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Intranet{% endblock %}</title>
+        {% stylesheets 'bundles/heicore/css/bootstrap.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+        {% endstylesheets %}
     </head>
     <body>
-
-        {% block body %}
-        {% endblock %}
-
+        <div class="container-fluid">
+            <div class="row" style="background-color: #2e3192">
+                <div class="col-md" style="margin: 5px 0 5px 0;">
+                    <img src="{{ asset('bundles/heicore/images/logoEspace.png') }}" alt="logo" class="img-fluid">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2 bg-secondary">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="{{ path('hei_contact_add') }}" class="nav-link"><h1>Contact</h1></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><h1>Statistique</h1></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><h1>Planning</h1></a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link"><h1>Agenda</h1></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10">
+                    {% block body %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
     </body>
 </html>

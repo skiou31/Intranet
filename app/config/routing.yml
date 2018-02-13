@@ -1,3 +1,3 @@
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+hei_contact:
+    resource: "@HEIContactBundle/Resources/config/routing.yml"
+    prefix:   /

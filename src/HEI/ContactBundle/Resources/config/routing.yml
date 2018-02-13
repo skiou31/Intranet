@@ -1,0 +1,3 @@
+hei_contact_homepage:
+    path:     /
+    defaults: { _controller: HEIContactBundle:Contact:index }

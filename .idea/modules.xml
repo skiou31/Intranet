@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Intranet.iml" filepath="$PROJECT_DIR$/.idea/Intranet.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/exo/.idea/exo.iml" filepath="$USER_HOME$/Desktop/exo/.idea/exo.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,3 @@
+hei_core_homepage:
+    path:     /
+    defaults: { _controller: HEICoreBundle:Core:index }

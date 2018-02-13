@@ -14,7 +14,5 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ContactController extends Controller
 {
-    public function indexAction() {
-        return $this->render('HEIContactBundle:Contact:index.html.twig');
-    }
+
 }

@@ -3,6 +3,7 @@
 namespace HEI\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contact
@@ -67,13 +68,15 @@ class Contact
      * @var string
      *
      * @ORM\Column(name="telephone", type="string", length=10)
+     * @Assert\Length(min=10, max=10)
      */
     private $telephone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100)
+     * @ORM\Column(name="email", type="string", length=100, nullable=true)
+     * @Assert\Email()
      */
     private $email;
 
@@ -81,6 +84,7 @@ class Contact
      * @var \DateTime
      *
      * @ORM\Column(name="dateAjout", type="date")
+     * @Assert\Date()
      */
     private $dateAjout;
 
@@ -94,9 +98,16 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="origineDetail", type="string", length=50)
+     * @ORM\Column(name="origineDetail", type="string", length=50, nullable=true)
      */
     private $origineDetail;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="parrain", type="string", length=50, nullable=true)
+     */
+    private $parrain;
 
     /**
      * @var string
@@ -108,14 +119,15 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="typeMaison", type="string", length=50)
+     * @ORM\Column(name="typeMaison", type="string", length=50, nullable=true)
      */
     private $typeMaison;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="anneeConstruction", type="integer")
+     * @ORM\Column(name="anneeConstruction", type="integer", nullable=true)
+     * @Assert\Length(min=4, max=4)
      */
     private $anneeConstruction;
 
@@ -129,7 +141,14 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="text")
+     * @ORM\Column(name="commercial", type="string", length=20)
+     */
+    private $commercial;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="commentaire", type="text", nullable=true)
      */
     private $commentaire;
 
@@ -140,6 +159,7 @@ class Contact
     public function __construct()
     {
         $this->dateAjout = new \DateTime();
+        $this->typeContact = 0;
     }
 
 
@@ -418,6 +438,30 @@ class Contact
     }
 
     /**
+     * Set parrain
+     *
+     * @param mixed $parrain
+     *
+     * @return Contact
+     */
+    public function setParrain($parrain)
+    {
+        $this->parrain = $parrain;
+
+        return $this;
+    }
+
+    /**
+     * Get parrain
+     *
+     * @return mixed
+     */
+    public function getParrain()
+    {
+        return $this->parrain;
+    }
+
+    /**
      * Set projet
      *
      * @param string $projet
@@ -511,6 +555,30 @@ class Contact
     public function getTypeContact()
     {
         return $this->typeContact;
+    }
+
+    /**
+     * Set commercial
+     *
+     * @param string $commercial
+     *
+     * @return Contact
+     */
+    public function setCommercial($commercial)
+    {
+        $this->commercial = $commercial;
+
+        return $this;
+    }
+
+    /**
+     * Get commercial
+     *
+     * @return string
+     */
+    public function getCommercial()
+    {
+        return $this->commercial;
     }
 
     /**

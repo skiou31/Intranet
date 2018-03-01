@@ -1,3 +1,15 @@
 hei_contact_add:
     path:      /add
     defaults:  { _controller: HEIContactBundle:Contact:add }
+
+hei_contact_search:
+    path:       /search
+    defaults:   { _controller: HEIContactBundle:Contact:search }
+
+hei_contact_consult:
+    path:       /consult
+    defaults:   { _controller: HEIContactBundle:Contact:consult }
+
+hei_contact_autocomplete:
+    path:       /autocomplete
+    defaults:   { _controller: HEIContactBundle:Contact:autocomplete }

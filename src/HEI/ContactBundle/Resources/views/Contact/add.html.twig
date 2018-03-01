@@ -8,4 +8,31 @@
     <div class="well">
         {{ form(form) }}
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var inputCodePostal = $('#hei_contactbundle_contact_codePostal');
+
+            inputCodePostal.change(function () {
+                var codePostal = inputCodePostal.val();
+                var route = "{{ path('hei_contact_autocomplete', {'codePostal': "PLACEHOLDER"}) }}";
+
+                if ( codePostal.length === 5 ) {
+                    $.ajax({
+                        url:        route.replace("PLACEHOLDER", codePostal),
+                        type:       "post",
+                        complete:   function (resultat) {
+                            $('#hei_contactbundle_contact_ville').empty();
+                            var result = resultat.responseJSON;
+                            var obj = jQuery.parseJSON(result);
+                            $.each(obj, function (key, element) {
+                                $("#hei_contactbundle_contact_ville").append('<option value="'+element["city"]+'">'+element["city"]+'</option>')
+                            })
+                        }
+                    })
+                }
+            });
+        })
+    </script>
 {% endblock %}

@@ -11,23 +11,29 @@
         <div class="container-fluid">
             <div class="row" style="background-color: #2e3192">
                 <div class="col-md" style="margin: 5px 0 5px 0;">
-                    <img src="{{ asset('bundles/heicore/images/logoEspace.png') }}" alt="logo" class="img-fluid">
+                    <a href="{{ path('hei_core_homepage') }}"><img src="{{ asset('bundles/heicore/images/logoEspace.png') }}" alt="logo" class="img-fluid"></a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-2 bg-secondary">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a href="{{ path('hei_contact_add') }}" class="nav-link"><h1>Contact</h1></a>
+                            <a href="{{ path('hei_contact_add') }}" class="nav-link text-white"><h2>Contact</h2></a>
+                            <ul class="">
+                                <li>
+                                    <a href="{{ path('hei_contact_add') }}" class="nav-link text-white"><h4>Ajouter</h4></a>
+                                    <a href="{{ path('hei_contact_search') }}" class="nav-link text-white"><h4>Rechercher</h4></a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><h1>Statistique</h1></a>
+                            <a href="#" class="nav-link text-white"><h2>Statistique</h2></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><h1>Planning</h1></a>
+                            <a href="#" class="nav-link text-white"><h2>Planning</h2></a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link"><h1>Agenda</h1></a>
+                            <a href="#" class="nav-link text-white"><h2>Agenda</h2></a>
                         </li>
                     </ul>
                 </div>

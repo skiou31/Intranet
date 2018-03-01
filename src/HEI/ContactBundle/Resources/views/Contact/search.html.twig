@@ -1,0 +1,69 @@
+{% extends 'HEICoreBundle::layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Contact{% endblock %}
+
+{% block body %}
+    <h3>Ajouter un contact</h3>
+
+    <div class="well">
+        {{ form(form) }}
+    </div>
+
+    {% if contacts is defined %}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Date ajout</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Ville</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Commercial</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.dateAjout.date }}</td>
+                    <td>{{ contact.nom }}</td>
+                    <td>{{ contact.adresse}}</td>
+                    <td>{{ contact.codePostal }} {{ contact.ville }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.telephone }}</td>
+                    <td>{{ contact.commercial }}</td>
+                    <td><a href="{{ path('hei_contact_consult', {'id': contact.id}) }}" class="btn btn-info" role="button">Fiche</a></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var inputCodePostal = $('#form_codePostal');
+
+            inputCodePostal.change(function () {
+                var codePostal = inputCodePostal.val();
+                var route = "{{ path('hei_contact_autocomplete', {'codePostal': "PLACEHOLDER"}) }}";
+
+                if ( codePostal.length === 5 ) {
+                    $.ajax({
+                        url:        route.replace("PLACEHOLDER", codePostal),
+                        type:       "post",
+                        complete:   function (resultat) {
+                            $('#form_ville').empty();
+                            var result = resultat.responseJSON;
+                            var obj = jQuery.parseJSON(result);
+                            $.each(obj, function (key, element) {
+                                $("#form_ville").append('<option value="'+element["city"]+'">'+element["city"]+'</option>')
+                            })
+                        }
+                    })
+                }
+            });
+        })
+    </script>
+{% endblock %}

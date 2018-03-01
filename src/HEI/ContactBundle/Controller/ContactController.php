@@ -47,6 +47,10 @@ class ContactController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contact);
                 $em->flush();
+
+                return $this->redirectToRoute('hei_contact_consult', array(
+                    'id' => $contact->getId(),
+                ));
             }
         }
 
@@ -70,7 +74,7 @@ class ContactController extends Controller
             }
 
             $ville = $data["ville"];
-//            $event->getForm()->add('ville', TextType::class, array('data' => $ville));
+
             $event
                 ->getForm()
                 ->add('ville',      ChoiceType::class, array(
@@ -143,8 +147,25 @@ class ContactController extends Controller
         ));
     }
 
-    public function consultAction() {
-        return $this->render('HEIContactBundle:Contact:consult.html.twig');
+    public function consultAction(Request $request) {
+        $repository = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
+
+        $contact = $repository->find($request->query->get('id'));
+        $form = $this->get('form.factory')->create(ContactType::class, $contact);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($contact);
+                $em->flush();
+            }
+        }
+
+        return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     /**

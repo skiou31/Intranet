@@ -10,8 +10,19 @@
     <body>
         <div class="container-fluid">
             <div class="row" style="background-color: #2e3192">
-                <div class="col-md" style="margin: 5px 0 5px 0;">
+                <div class="col-md-2" style="margin: 5px 0 5px 0;">
                     <a href="{{ path('hei_core_homepage') }}"><img src="{{ asset('bundles/heicore/images/logoEspace.png') }}" alt="logo" class="img-fluid"></a>
+                </div>
+                <div class="col-md-6"></div>
+                <div class="col-md-4 text-white text-right">
+                    <h5>
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        Connecté en tant que {{ app.user.username }} -
+                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    {% else %}
+                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    {% endif %}
+                    </h5>
                 </div>
             </div>
             <div class="row">

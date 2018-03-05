@@ -18,6 +18,8 @@ class AppKernel extends Kernel
             new HEI\ContactBundle\HEIContactBundle(),
             new HEI\CoreBundle\HEICoreBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
+            new HEI\UserBundle\HEIUserBundle(),
+            new \FOS\UserBundle\FOSUserBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

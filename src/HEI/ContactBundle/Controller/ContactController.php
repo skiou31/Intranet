@@ -151,20 +151,9 @@ class ContactController extends Controller
         $repository = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
 
         $contact = $repository->find($request->query->get('id'));
-        $form = $this->get('form.factory')->create(ContactType::class, $contact);
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($contact);
-                $em->flush();
-            }
-        }
 
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
-            'form' => $form->createView(),
+            'contact' => $contact,
         ));
     }
 

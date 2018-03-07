@@ -3,39 +3,57 @@
 {% block title %}{{ parent() }} - Contact{% endblock %}
 
 {% block body %}
-    <div class="well">
-        {{ form(form) }}
+    <div class="row" style="padding: 1% 0 1% 0">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body text-center">
+                    <h4 class="card-title">{{ contact.civilite }} {{ contact.nom }} {{ contact.prenom }}</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Ajouté le {{ contact.dateAjout.date }}</h6>
+                    <p class="card-text">
+                        {{ contact.adresse }}<br />
+                        {{ contact.codePostal }}, {{ contact.ville }}
+                    </p>
+                    <p class="card-text"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
+                    <p class="card-text">{{ contact.telephone }}</p>
+                    <p class="card-text">Origine : {{ contact.origine }}, {{ contact.origineDetail }}</p>
+                    <p class="card-text">Commercial : {{ contact.commercial }}</p>
+                    <p class="card-text">Commentaire : {{ contact.commentaire }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-around" style="padding: 1% 0 1% 0">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-outline-dark btn-block">Photos</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-outline-dark btn-block">Devis</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-outline-dark btn-block">Plans</button>
+        </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            var inputCodePostal = $('#hei_contactbundle_contact_codePostal');
-            var route = "{{ path('hei_contact_autocomplete', {'codePostal': "PLACEHOLDER"}) }}";
-            var codePostal = inputCodePostal.val();
+    <div class="row justify-content-around" style="padding: 1% 0 1% 0">
+        <div class="col-md-2">
+            <button type="button" class="btn btn-outline-dark btn-block">Administratif</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-outline-dark btn-block">Chèque</button>
+        </div>
+    </div>
 
-            ajax(route, codePostal);
-
-            inputCodePostal.change(function () {
-                if ( codePostal.length === 5 ) {
-                    ajax(route, codePostal);
-                }
-            });
-
-            function ajax(route, codePostal) {
-                $.ajax({
-                    url:        route.replace("PLACEHOLDER", codePostal),
-                    type:       "post",
-                    complete:   function (resultat) {
-                        $('#hei_contactbundle_contact_ville').empty();
-                        var result = resultat.responseJSON;
-                        var obj = jQuery.parseJSON(result);
-                        $.each(obj, function (key, element) {
-                            $("#hei_contactbundle_contact_ville").append('<option value="'+element["city"]+'">'+element["city"]+'</option>')
-                        })
-                    }
-                })
-            }
-        })
-    </script>
+    <div class="row" style="padding: 1% 0 1% 0">
+        <div class="col">
+            <div class="btn-group" style="width: 100%" role="group" aria-label="Avancement du contact">
+                <button class="btn btn-primary btn-block" style="margin: 0">Enregistré</button>
+                <button class="btn btn-secondary btn-block" style="margin: 0">Devis ajouté</button>
+                <button class="btn btn-secondary btn-block" style="margin: 0">Signature</button>
+                <button class="btn btn-secondary btn-block" style="margin: 0">DT / PC</button>
+                <button class="btn btn-secondary btn-block" style="margin: 0">Démarrage</button>
+                <button class="btn btn-secondary btn-block" style="margin: 0">Chantier</button>
+                <button class="btn btn-secondary btn-block" style="margin: 0">Réception</button>
+            </div>
+        </div>
+    </div>
 {% endblock %}

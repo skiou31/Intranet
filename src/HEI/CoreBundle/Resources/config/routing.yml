@@ -1,7 +1,3 @@
 hei_core_homepage:
     path:     /
     defaults: { _controller: HEICoreBundle:Core:index }
-
-hei_core_change:
-    path:     /changerole
-    defaults: { _controller: HEICoreBundle:Core:change }

@@ -82,3 +82,10 @@ fos_user:
     from_email:
       address:       "%mailer_user%"
       sender_name:  "%mailer_user%"
+
+easy_admin:
+    entities:
+        User:
+            class : HEI\UserBundle\Entity\User
+        Contact:
+            class : HEI\ContactBundle\Entity\Contact

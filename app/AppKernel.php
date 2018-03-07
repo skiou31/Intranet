@@ -19,7 +19,8 @@ class AppKernel extends Kernel
             new HEI\CoreBundle\HEICoreBundle(),
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new HEI\UserBundle\HEIUserBundle(),
-            new \FOS\UserBundle\FOSUserBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

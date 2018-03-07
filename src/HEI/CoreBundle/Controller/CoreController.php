@@ -15,8 +15,4 @@ class CoreController extends Controller
     public function indexAction() {
         return $this->render('HEICoreBundle:Core:index.html.twig');
     }
-
-    public function changeAction()
-    {
-    }
 }

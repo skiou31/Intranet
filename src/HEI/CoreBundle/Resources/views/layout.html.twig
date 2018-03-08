@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Intranet{% endblock %}</title>
-        {% stylesheets 'bundles/heicore/css/bootstrap.css' %}
+        {% stylesheets '@HEICoreBundle/Resources/public/css/bootstrap.css' %}
             <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
         {% endstylesheets %}
     </head>
@@ -11,7 +11,11 @@
         <div class="container-fluid">
             <div class="row" style="background-color: #2e3192">
                 <div class="col-md-2" style="margin: 5px 0 5px 0;">
-                    <a href="{{ path('hei_core_homepage') }}"><img src="{{ asset('bundles/heicore/images/logoEspace.png') }}" alt="logo" class="img-fluid"></a>
+                    <a href="{{ path('hei_core_homepage') }}">
+                        {% image '@HEICoreBundle/Resources/public/images/logoEspace.png' %}
+                            <img src="{{ asset_url }}" alt="Logo">
+                        {% endimage %}
+                    </a>
                 </div>
                 <div class="col-md-6"></div>
                 <div class="col-md-4 text-white text-right">

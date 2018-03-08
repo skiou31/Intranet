@@ -4,7 +4,6 @@ namespace HEI\ContactBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-use HEI\UserBundle\Entity\User;
 
 /**
  * Contact
@@ -566,7 +565,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setCommercial(User $commercial)
+    public function setCommercial($commercial)
     {
         $this->commercial = $commercial;
 
@@ -607,3 +606,4 @@ class Contact
         return $this->commentaire;
     }
 }
+

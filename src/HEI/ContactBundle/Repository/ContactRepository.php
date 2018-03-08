@@ -31,10 +31,7 @@ class ContactRepository extends EntityRepository
         if ($contact->getAdresse() != null) {
             $qb->andWhere('a.adresse = :adresse')->setParameter('adresse', $contact->getAdresse());
         }
-        if ($contact->getCommercial() != null) {
-            $qb->andWhere('a.commercial = :commercial')->setParameter('commercial', $contact->getCommercial());
-        }
 
-        return $qb->getQuery()->getArrayResult();
+        return $qb->getQuery()->getResult();
     }
 }

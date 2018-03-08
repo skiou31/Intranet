@@ -10,14 +10,11 @@ namespace HEI\ContactBundle\Controller;
 
 use HEI\ContactBundle\Entity\Contact;
 use HEI\ContactBundle\Form\ContactType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -101,22 +98,6 @@ class ContactController extends Controller
             ->addEventListener(FormEvents::PRE_SUBMIT, $listener)
             ->add('adresse',        TextType::class, array(
                 'required'  =>  false
-            ))
-            ->add('commercial',     ChoiceType::class, array(
-                'required'  => false,
-                'choices'   =>  array(
-                    'Commercial'            =>  '',
-                    'A définir'             =>  'a definir',
-                    'Cyril Frère'           =>  'Cyril',
-                    'Lionel Dombrowski'     =>  'Lionel',
-                    'Victorien Camicia'     =>  'Victorien',
-                    'Adrien Thieffry'       =>  'Adrien',
-                    'Dominique Delille'     =>  'Dominique',
-                    'Sébastien Hallez'      =>  'Sebastien',
-                    'Jérôme Ombrouck'       =>  'Jerome',
-                    'Benoit Charpentier'    =>  'Benoit',
-                    'Stéphane Hearteaux'    =>  'Stephane'
-                )
             ))
             ->add('Rechercher',        SubmitType::class)
         ;

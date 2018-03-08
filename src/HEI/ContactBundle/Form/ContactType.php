@@ -2,6 +2,10 @@
 
 namespace HEI\ContactBundle\Form;
 
+use Doctrine\ORM\EntityRepository;
+use HEI\ContactBundle\Entity\Contact;
+use HEI\UserBundle\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -111,21 +115,9 @@ class ContactType extends AbstractType
             ->add('anneeConstruction',  NumberType::class, array(
                 'required'  =>  false,
             ))
-            ->add('commercial',         ChoiceType::class, array(
-                'required'  => true,
-                'choices'   =>  array(
-                    'Commercial'    =>  '',
-                    'A définir'     =>  'a definir',
-                    'Cyril Frere'   =>  'Cyril',
-                    'Lionel Dombrowski'     =>  'Lionel',
-                    'Victorien Camicia'     =>  'Victorien',
-                    'Adrien Thieffry'       =>  'Adrien',
-                    'Dominique Delille'     =>  'Dominique',
-                    'Sébastien Hallez'      =>  'Sebastien',
-                    'Jérôme Ombrouck'       =>  'Jerome',
-                    'Benoit Charpentier'    =>  'Benoit',
-                    'Stéphane Hearteaux'    =>  'Stephane'
-                )
+            ->add('commercial',               EntityType::class, array(
+                'class'  => User::class,
+                'choice_label'  =>  'nom'
             ))
             ->add('commentaire',        TextareaType::class, array(
                 'required'  =>  false,

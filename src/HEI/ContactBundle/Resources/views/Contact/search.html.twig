@@ -8,7 +8,6 @@
     <div class="well">
         {{ form(form) }}
     </div>
-
     {% if contacts is defined %}
         <table class="table table-striped">
             <thead>
@@ -32,7 +31,7 @@
                     <td>{{ contact.codePostal }} {{ contact.ville }}</td>
                     <td>{{ contact.email }}</td>
                     <td>{{ contact.telephone }}</td>
-                    <td>{{ contact.commercial }}</td>
+                    <td>{{ contact.commercial.nom }} {{ contact.commercial.prenom }}</td>
                     <td><a href="{{ path('hei_contact_consult', {'id': contact.id}) }}" class="btn btn-info" role="button">Fiche</a></td>
                 </tr>
             {% endfor %}

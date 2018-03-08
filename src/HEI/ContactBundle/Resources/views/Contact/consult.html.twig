@@ -33,7 +33,7 @@
                     <p class="card-text"><a href="mailto:{{ contact.email }}">{{ contact.email }}</a></p>
                     <p class="card-text">{{ contact.telephone }}</p>
                     <p class="card-text">Origine : {{ contact.origine }}, {{ contact.origineDetail }}</p>
-                    <p class="card-text">Commercial : {{ contact.commercial }}</p>
+                    <p class="card-text">Commercial : {{ contact.commercial.nom }} {{ contact.commercial.prenom }}</p>
                     <p class="card-text">Commentaire : {{ contact.commentaire }}</p>
                 </div>
             </div>

@@ -3,9 +3,20 @@
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Intranet{% endblock %}</title>
-        {% stylesheets '@HEICoreBundle/Resources/public/css/bootstrap.css' %}
-            <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
-        {% endstylesheets %}
+        {#{% stylesheets '@HEICoreBundle/Resources/public/css/bootstrap.css' %}#}
+            {#<link rel="stylesheet" href="{{ asset_url }}" type="text/css">#}
+        {#{% endstylesheets %}#}
+        {#{% javascripts '@HEICoreBundle/Resources/public/js/fontawesome-all.min.js' %}#}
+            {#<script defer src="{{ asset_url }}"></script>#}
+        {#{% endjavascripts %}#}
+        {% block imports %}
+            {% stylesheets '@HEICoreBundle/Resources/public/css/bootstrap.css' %}
+                <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+            {% endstylesheets %}
+            {% javascripts '@HEICoreBundle/Resources/public/js/fontawesome-all.min.js' %}
+                <script defer src="{{ asset_url }}"></script>
+            {% endjavascripts %}
+        {% endblock %}
     </head>
     <body>
         <div class="container-fluid">

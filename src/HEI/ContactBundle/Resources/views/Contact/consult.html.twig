@@ -1,5 +1,19 @@
 {% extends 'HEICoreBundle::layout.html.twig' %}
 
+{% block imports %}
+    {{ parent() }}
+    {% javascripts
+        '@HEIContactBundle/Resources/public/js/jquery-3.2.1.min.js'
+        '@HEIContactBundle/Resources/public/js/jquery.dataTables.min.js'
+        '@HEIContactBundle/Resources/public/js/dataTables.bootstrap4.min.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% stylesheets '@HEIContactBundle/Resources/public/css/dataTables.bootstrap4.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
 {% block title %}{{ parent() }} - Contact{% endblock %}
 
 {% block body %}
@@ -7,6 +21,9 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body text-center">
+                    <div class="text-right">
+                        <a href="#" class="card-link"><i class="far fa-edit fa-2x"></i></a>
+                    </div>
                     <h4 class="card-title">{{ contact.civilite }} {{ contact.nom }} {{ contact.prenom }}</h4>
                     <h6 class="card-subtitle mb-2 text-muted">Ajouté le {{ contact.dateAjout.date }}</h6>
                     <p class="card-text">
@@ -56,4 +73,10 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#test').DataTable();
+        })
+    </script>
 {% endblock %}

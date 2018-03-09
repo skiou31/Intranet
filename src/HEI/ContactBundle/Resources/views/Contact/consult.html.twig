@@ -41,22 +41,32 @@
     </div>
     <div class="row justify-content-around" style="padding: 1% 0 1% 0">
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">Photos</button>
+            <button type="button" class="btn btn-outline-dark btn-block">
+                <a href="{{ path('hei_contact_addfile', {'type':'photo', 'id':contact.id}) }}">Photos</a>
+            </button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">Devis</button>
+            <button type="button" class="btn btn-outline-dark btn-block">
+                <a href="{{ path('hei_contact_addfile', {'type':'Devis', 'id':contact.id}) }}">Devis</a>
+            </button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">Plans</button>
+            <button type="button" class="btn btn-outline-dark btn-block">
+                <a href="{{ path('hei_contact_addfile', {'type':'Plans', 'id':contact.id}) }}">Plans</a>
+            </button>
         </div>
     </div>
 
     <div class="row justify-content-around" style="padding: 1% 0 1% 0">
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">Administratif</button>
+            <button type="button" class="btn btn-outline-dark btn-block">
+                <a href="{{ path('hei_contact_addfile', {'type':'Administratif', 'id':contact.id}) }}">Administratif</a>
+            </button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">Chèque</button>
+            <button type="button" class="btn btn-outline-dark btn-block">
+                <a href="{{ path('hei_contact_addfile', {'type':'Chèque', 'id':contact.id}) }}">Chèque</a>
+            </button>
         </div>
     </div>
 
@@ -73,10 +83,4 @@
             </div>
         </div>
     </div>
-
-    <script>
-        $(document).ready(function () {
-            $('#test').DataTable();
-        })
-    </script>
 {% endblock %}

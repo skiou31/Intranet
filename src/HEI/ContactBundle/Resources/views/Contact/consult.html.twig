@@ -41,31 +41,31 @@
     </div>
     <div class="row justify-content-around" style="padding: 1% 0 1% 0">
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_file_add', {'type':'photo', 'id':contact[0].id}) }}">Photos</a>
+            <button type="button" class="btn btn-outline-dark btn-block" onclick="location.href='{{ path('hei_file_add', {'type':'photo', 'id':contact[0].id}) }}'">
+                Photo
             </button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_file_add', {'type':'Devis', 'id':contact[0].id}) }}">Devis</a>
+            <button type="button" class="btn btn-outline-dark btn-block" onclick="location.href='{{ path('hei_file_add', {'type':'Devis', 'id':contact[0].id}) }}'">
+                Devis
             </button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_file_add', {'type':'Plans', 'id':contact[0].id}) }}">Plans</a>
+            <button type="button" class="btn btn-outline-dark btn-block" onclick="location.href='{{ path('hei_file_add', {'type':'Plans', 'id':contact[0].id}) }}'">
+                Plan
             </button>
         </div>
     </div>
 
     <div class="row justify-content-around" style="padding: 1% 0 1% 0">
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_file_add', {'type':'Administratif', 'id':contact[0].id}) }}">Administratif</a>
+            <button type="button" class="btn btn-outline-dark btn-block" onclick="location.href='{{ path('hei_file_add', {'type':'Administratif', 'id':contact[0].id}) }}'">
+                Administratif
             </button>
         </div>
         <div class="col-md-2">
-            <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_file_add', {'type':'Chèque', 'id':contact[0].id}) }}">Chèque</a>
+            <button type="button" class="btn btn-outline-dark btn-block" onclick="location.href='{{ path('hei_file_add', {'type':'Chèque', 'id':contact[0].id}) }}'">
+                Chèque
             </button>
         </div>
     </div>
@@ -84,7 +84,7 @@
         </div>
     </div>
     <hr>
-    <div class="row justify-content-around" style="padding: 1% 0 1% 0">
+    <div class="row" style="padding: 1% 0 1% 0">
         <table id="files" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>

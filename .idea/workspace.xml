@@ -14,12 +14,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ContactController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Controller/ContactController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-6">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <element signature="e#1102#1168#0#PHP" expanded="false" />
+                <element signature="e#1173#1894#0#PHP" expanded="false" />
+                <element signature="e#1900#1966#0#PHP" expanded="false" />
+                <element signature="e#1971#4054#0#PHP" expanded="false" />
+                <element signature="e#2075#2549#1#PHP" expanded="false" />
+                <element signature="e#2350#2524#0#PHP" expanded="false" />
+                <element signature="e#2720#2778#0#PHP" expanded="false" />
+                <element signature="e#2835#2893#0#PHP" expanded="false" />
+                <element signature="e#2950#3008#0#PHP" expanded="false" />
+                <element signature="e#3134#3192#0#PHP" expanded="false" />
+                <element signature="e#3986#4046#0#PHP" expanded="false" />
+                <element signature="e#4578#6486#0#PHP" expanded="false" />
+                <element signature="e#6492#6588#0#PHP" expanded="false" />
+                <element signature="e#6593#6840#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ContactRepository.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Repository/ContactRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="487">
+              <caret line="44" column="33" lean-forward="false" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="consult.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Resources/views/Contact/consult.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
-              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="306">
+              <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+              <folding>
+                <element signature="e#689#715#0#HTML" expanded="true" />
+                <element signature="e#2043#2069#0#HTML" expanded="true" />
+                <element signature="e#2878#2904#0#HTML" expanded="true" />
+                <element signature="e#3465#3491#0#HTML" expanded="true" />
+                <element signature="e#3554#3573#0#HTML" expanded="true" />
+                <element signature="e#3681#3698#0#HTML" expanded="true" />
+                <element signature="e#3779#3796#0#HTML" expanded="true" />
+                <element signature="e#3879#3896#0#HTML" expanded="true" />
+                <element signature="e#3976#3993#0#HTML" expanded="true" />
+                <element signature="e#4071#4088#0#HTML" expanded="true" />
+                <element signature="e#4168#4185#0#HTML" expanded="true" />
+                <element signature="e#4264#4281#0#HTML" expanded="true" />
+                <element signature="e#4399#4425#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="File.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Entity/File.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="373">
+              <caret line="41" column="87" lean-forward="false" selection-start-line="41" selection-start-column="87" selection-end-line="41" selection-end-column="87" />
+              <folding>
+                <element signature="e#275#414#0#PHP" expanded="false" />
+                <element signature="e#437#532#0#PHP" expanded="false" />
+                <element signature="e#556#651#0#PHP" expanded="false" />
+                <element signature="e#890#941#0#PHP" expanded="false" />
+                <element signature="e#946#1007#0#PHP" expanded="false" />
+                <element signature="e#1013#1099#0#PHP" expanded="false" />
+                <element signature="e#1104#1194#0#PHP" expanded="false" />
+                <element signature="e#1200#1255#0#PHP" expanded="false" />
+                <element signature="e#1260#1323#0#PHP" expanded="false" />
+                <element signature="e#1329#1417#0#PHP" expanded="false" />
+                <element signature="e#1422#1516#0#PHP" expanded="false" />
+                <element signature="e#1522#1578#0#PHP" expanded="false" />
+                <element signature="e#1583#1648#0#PHP" expanded="false" />
+                <element signature="e#1654#1775#0#PHP" expanded="false" />
+                <element signature="e#1780#1920#0#PHP" expanded="false" />
+                <element signature="e#1926#2012#0#PHP" expanded="false" />
+                <element signature="e#2017#2088#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Contact.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Entity/Contact.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="453">
+              <caret line="627" column="0" lean-forward="false" selection-start-line="627" selection-start-column="0" selection-end-line="627" selection-end-column="0" />
+              <folding>
+                <element signature="e#44#92#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -71,15 +160,15 @@
         <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/src/HEI/CoreBundle/Resources/views/layout.html.twig" />
-        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Repository/ContactRepository.php" />
         <option value="$PROJECT_DIR$/src/HEI/UserBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Resources/views/Contact/search.html.twig" />
         <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Form/ContactType.php" />
-        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Entity/Contact.php" />
         <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Entity/File.php" />
-        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Controller/ContactController.php" />
         <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Resources/views/File/add.html.twig" />
+        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Entity/File.php" />
+        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Entity/Contact.php" />
+        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Repository/ContactRepository.php" />
+        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Controller/ContactController.php" />
         <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Resources/views/Contact/consult.html.twig" />
       </list>
     </option>
@@ -194,6 +283,30 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="ContactBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Intranet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Intranet" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ContactBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Intranet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Intranet" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ContactBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="Intranet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Intranet" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="ContactBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -275,12 +388,12 @@
       <workItem from="1520418241114" duration="6884000" />
       <workItem from="1520495633846" duration="23052000" />
       <workItem from="1520534939581" duration="58000" />
-      <workItem from="1520581788029" duration="6149000" />
+      <workItem from="1520581788029" duration="11773000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140058000" />
+    <option name="totallyTimeSpent" value="145682000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-321" width="1936" height="1056" extended-state="6" />
@@ -550,77 +663,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Repository/ContactRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="9" lean-forward="false" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Entity/Contact.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="147" column="24" lean-forward="false" selection-start-line="147" selection-start-column="24" selection-end-line="147" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Entity/File.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="150" column="0" lean-forward="false" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#76#0#PHP" expanded="true" />
-            <element signature="e#275#414#0#PHP" expanded="false" />
-            <element signature="e#437#532#0#PHP" expanded="false" />
-            <element signature="e#556#651#0#PHP" expanded="false" />
-            <element signature="e#676#823#0#PHP" expanded="false" />
-            <element signature="e#871#922#0#PHP" expanded="false" />
-            <element signature="e#927#988#0#PHP" expanded="false" />
-            <element signature="e#994#1080#0#PHP" expanded="false" />
-            <element signature="e#1085#1175#0#PHP" expanded="false" />
-            <element signature="e#1181#1236#0#PHP" expanded="false" />
-            <element signature="e#1241#1304#0#PHP" expanded="false" />
-            <element signature="e#1310#1398#0#PHP" expanded="false" />
-            <element signature="e#1403#1497#0#PHP" expanded="false" />
-            <element signature="e#1503#1559#0#PHP" expanded="false" />
-            <element signature="e#1564#1629#0#PHP" expanded="false" />
-            <element signature="e#1635#1756#0#PHP" expanded="false" />
-            <element signature="e#1761#1901#0#PHP" expanded="false" />
-            <element signature="e#1907#1993#0#PHP" expanded="false" />
-            <element signature="e#1998#2069#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Form/ContactType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="117" column="12" lean-forward="false" selection-start-line="117" selection-start-column="12" selection-end-line="120" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Controller/ContactController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="180" column="0" lean-forward="false" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
-          <folding>
-            <element signature="e#132#166#0#PHP" expanded="true" />
-            <element signature="e#1102#1168#0#PHP" expanded="false" />
-            <element signature="e#1900#1966#0#PHP" expanded="false" />
-            <element signature="e#2075#2549#1#PHP" expanded="false" />
-            <element signature="e#2350#2524#0#PHP" expanded="false" />
-            <element signature="e#2720#2778#0#PHP" expanded="false" />
-            <element signature="e#2835#2893#0#PHP" expanded="false" />
-            <element signature="e#2950#3008#0#PHP" expanded="false" />
-            <element signature="e#3134#3192#0#PHP" expanded="false" />
-            <element signature="e#3986#4046#0#PHP" expanded="false" />
-            <element signature="e#4060#4413#0#PHP" expanded="false" />
-            <element signature="e#6335#6431#0#PHP" expanded="false" />
-            <element signature="e#6436#6683#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -650,11 +697,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Entity/File.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="41" column="87" lean-forward="false" selection-start-line="41" selection-start-column="87" selection-end-line="41" selection-end-column="87" />
+          <folding>
+            <element signature="e#275#414#0#PHP" expanded="false" />
+            <element signature="e#437#532#0#PHP" expanded="false" />
+            <element signature="e#556#651#0#PHP" expanded="false" />
+            <element signature="e#890#941#0#PHP" expanded="false" />
+            <element signature="e#946#1007#0#PHP" expanded="false" />
+            <element signature="e#1013#1099#0#PHP" expanded="false" />
+            <element signature="e#1104#1194#0#PHP" expanded="false" />
+            <element signature="e#1200#1255#0#PHP" expanded="false" />
+            <element signature="e#1260#1323#0#PHP" expanded="false" />
+            <element signature="e#1329#1417#0#PHP" expanded="false" />
+            <element signature="e#1422#1516#0#PHP" expanded="false" />
+            <element signature="e#1522#1578#0#PHP" expanded="false" />
+            <element signature="e#1583#1648#0#PHP" expanded="false" />
+            <element signature="e#1654#1775#0#PHP" expanded="false" />
+            <element signature="e#1780#1920#0#PHP" expanded="false" />
+            <element signature="e#1926#2012#0#PHP" expanded="false" />
+            <element signature="e#2017#2088#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Entity/Contact.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="627" column="0" lean-forward="false" selection-start-line="627" selection-start-column="0" selection-end-line="627" selection-end-column="0" />
+          <folding>
+            <element signature="e#44#92#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Repository/ContactRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="487">
+          <caret line="44" column="33" lean-forward="false" selection-start-line="44" selection-start-column="33" selection-end-line="44" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Controller/ContactController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#1102#1168#0#PHP" expanded="false" />
+            <element signature="e#1173#1894#0#PHP" expanded="false" />
+            <element signature="e#1900#1966#0#PHP" expanded="false" />
+            <element signature="e#1971#4054#0#PHP" expanded="false" />
+            <element signature="e#2075#2549#1#PHP" expanded="false" />
+            <element signature="e#2350#2524#0#PHP" expanded="false" />
+            <element signature="e#2720#2778#0#PHP" expanded="false" />
+            <element signature="e#2835#2893#0#PHP" expanded="false" />
+            <element signature="e#2950#3008#0#PHP" expanded="false" />
+            <element signature="e#3134#3192#0#PHP" expanded="false" />
+            <element signature="e#3986#4046#0#PHP" expanded="false" />
+            <element signature="e#4578#6486#0#PHP" expanded="false" />
+            <element signature="e#6492#6588#0#PHP" expanded="false" />
+            <element signature="e#6593#6840#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/HEI/ContactBundle/Resources/views/Contact/consult.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="306">
+          <caret line="18" column="16" lean-forward="false" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+          <folding>
+            <element signature="e#689#715#0#HTML" expanded="true" />
+            <element signature="e#2043#2069#0#HTML" expanded="true" />
+            <element signature="e#2878#2904#0#HTML" expanded="true" />
+            <element signature="e#3465#3491#0#HTML" expanded="true" />
+            <element signature="e#3554#3573#0#HTML" expanded="true" />
+            <element signature="e#3681#3698#0#HTML" expanded="true" />
+            <element signature="e#3779#3796#0#HTML" expanded="true" />
+            <element signature="e#3879#3896#0#HTML" expanded="true" />
+            <element signature="e#3976#3993#0#HTML" expanded="true" />
+            <element signature="e#4071#4088#0#HTML" expanded="true" />
+            <element signature="e#4168#4185#0#HTML" expanded="true" />
+            <element signature="e#4264#4281#0#HTML" expanded="true" />
+            <element signature="e#4399#4425#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

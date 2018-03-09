@@ -135,10 +135,14 @@ class ContactController extends Controller
     public function consultAction(Request $request) {
         $repository = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
 
-        $contact = $repository->find($request->query->get('id'));
+//        $contact = $repository->find($request->query->get('id'));
+        $contact = $repository->getContactWithFiles($request->query->get('id'));
+
+//        $files = $contact->getFiles();
 
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
             'contact' => $contact,
+//            'files'   => $files
         ));
     }
 
@@ -153,8 +157,6 @@ class ContactController extends Controller
         $id = $request->query->get("id");
         $contact = $repository->findOneBy(array('id' => $id));
         $contactArray = array($contact);
-
-
 
         $file = new File();
 

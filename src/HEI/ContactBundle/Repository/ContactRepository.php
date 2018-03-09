@@ -34,4 +34,16 @@ class ContactRepository extends EntityRepository
 
         return $qb->getQuery()->getResult();
     }
+
+    public function getContactWithFiles($id)
+    {
+        $qb = $this
+            ->createQueryBuilder('c')
+            ->leftJoin('c.files', 'file')
+            ->addSelect('file')
+            ->andWhere('c.id = :id')
+            ->setParameter('id', $id);
+
+        return $qb->getQuery()->getResult();
+    }
 }

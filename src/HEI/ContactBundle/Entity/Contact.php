@@ -2,6 +2,7 @@
 
 namespace HEI\ContactBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use HEI\UserBundle\Entity\User;
@@ -155,6 +156,11 @@ class Contact
     private $commentaire;
 
     /**
+     * @ORM\OneToMany(targetEntity="HEI\ContactBundle\Entity\File", mappedBy="contact")
+     */
+    private $files;
+
+    /**
      * Contact constructor.
      * @param \DateTime $dateAjout
      */
@@ -162,6 +168,7 @@ class Contact
     {
         $this->dateAjout = new \DateTime();
         $this->typeContact = 0;
+        $this->files = new ArrayCollection();
     }
 
 
@@ -605,5 +612,22 @@ class Contact
     public function getCommentaire()
     {
         return $this->commentaire;
+    }
+
+    public function addFile(File $file)
+    {
+        $this->files[] = $file;
+
+        $file->setContact($this);
+    }
+
+    public function removeFile(File $file)
+    {
+        $this->files->removeElement($file);
+    }
+
+    public function getFiles()
+    {
+        return $this->files;
     }
 }

@@ -8,14 +8,10 @@
 
 namespace HEI\ContactBundle\Controller;
 
-use Doctrine\ORM\EntityRepository;
 use HEI\ContactBundle\Entity\Contact;
-use HEI\ContactBundle\Entity\File;
 use HEI\ContactBundle\Form\ContactType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -132,76 +128,18 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function consultAction(Request $request) {
         $repository = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
 
-//        $contact = $repository->find($request->query->get('id'));
         $contact = $repository->getContactWithFiles($request->query->get('id'));
 
-//        $files = $contact->getFiles();
 
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
             'contact' => $contact,
-//            'files'   => $files
-        ));
-    }
-
-    public function addFileAction(Request $request)
-    {
-        $repository = $this
-            ->getDoctrine()
-            ->getManager()
-            ->getRepository('HEIContactBundle:Contact')
-        ;
-        $type = $request->query->get("type");
-        $id = $request->query->get("id");
-        $contact = $repository->findOneBy(array('id' => $id));
-        $contactArray = array($contact);
-
-        $file = new File();
-
-        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $file);
-
-        $formBuilder
-            ->add('file',       FileType::class)
-            ->add('type',       ChoiceType::class, array(
-                'choices'   =>  array(
-                    'Photo'         =>  'Photo',
-                    'Devis'         =>  'Devis',
-                    'Plan'          =>  'Plan',
-                    'Administratif' =>  'Administratif',
-                    'Chèque'        =>  'Chèque'
-                )
-            ))
-            ->add('contact',     EntityType::class, array(
-                'class'         => Contact::class,
-                'choice_label'  =>  'nom',
-                'choices'       => $contactArray
-            ))
-            ->add('Envoyer',    SubmitType::class)
-        ;
-
-        $form = $formBuilder->getForm();
-
-        if ($request->isMethod('POST')) {
-            $form->handleRequest($request);
-
-            if ($form->isValid()) {
-                $file->upload($type, $id);
-
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($file);
-                $em->flush();
-
-                return $this->redirectToRoute('hei_contact_consult', array(
-                    'id' => $id,
-                ));
-            }
-        }
-
-        return $this->render('HEIContactBundle:File:add.html.twig', array(
-            'form'  => $form->createView(),
-            'contact'   => $contact
         ));
     }
 

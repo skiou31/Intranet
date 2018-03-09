@@ -42,17 +42,17 @@
     <div class="row justify-content-around" style="padding: 1% 0 1% 0">
         <div class="col-md-2">
             <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_contact_addfile', {'type':'photo', 'id':contact[0].id}) }}">Photos</a>
+                <a href="{{ path('hei_file_add', {'type':'photo', 'id':contact[0].id}) }}">Photos</a>
             </button>
         </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_contact_addfile', {'type':'Devis', 'id':contact[0].id}) }}">Devis</a>
+                <a href="{{ path('hei_file_add', {'type':'Devis', 'id':contact[0].id}) }}">Devis</a>
             </button>
         </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_contact_addfile', {'type':'Plans', 'id':contact[0].id}) }}">Plans</a>
+                <a href="{{ path('hei_file_add', {'type':'Plans', 'id':contact[0].id}) }}">Plans</a>
             </button>
         </div>
     </div>
@@ -60,12 +60,12 @@
     <div class="row justify-content-around" style="padding: 1% 0 1% 0">
         <div class="col-md-2">
             <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_contact_addfile', {'type':'Administratif', 'id':contact[0].id}) }}">Administratif</a>
+                <a href="{{ path('hei_file_add', {'type':'Administratif', 'id':contact[0].id}) }}">Administratif</a>
             </button>
         </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-outline-dark btn-block">
-                <a href="{{ path('hei_contact_addfile', {'type':'Chèque', 'id':contact[0].id}) }}">Chèque</a>
+                <a href="{{ path('hei_file_add', {'type':'Chèque', 'id':contact[0].id}) }}">Chèque</a>
             </button>
         </div>
     </div>
@@ -99,8 +99,8 @@
                         <td>{{ file.nom }}</td>
                         <td>{{ file.type }}</td>
                         <td>
-                            <button type="button" class="bt btn-success btn-sm">Télécharger</button>
-                            <button type="button" class="bt btn-danger btn-sm">Supprimer</button>
+                            <button type="button" class="btn btn-success btn-sm" onclick="location.href='{{ path('hei_file_download', {'id':contact[0].id, 'filename':file.nom}) }}'">Télécharger</button>
+                            <button type="button" class="btn btn-danger  btn-sm" onclick="location.href='{{ path('hei_file_remove', {'id':contact[0].id, 'filename':file.nom}) }}'">Supprimer</button>
                         </td>
                     </tr>
                 {% endfor %}

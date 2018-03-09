@@ -39,7 +39,7 @@ class File
     /**
      * @var string
      *
-     * @ORM\ManyToOne(targetEntity="HEI\ContactBundle\Entity\Contact", inversedBy="file")
+     * @ORM\ManyToOne(targetEntity="HEI\ContactBundle\Entity\Contact", inversedBy="files")
      * @ORM\JoinColumn(nullable=false)
      */
     private $contact;

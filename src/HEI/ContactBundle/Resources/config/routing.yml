@@ -10,9 +10,17 @@ hei_contact_consult:
     path:       /consult
     defaults:   { _controller: HEIContactBundle:Contact:consult }
 
-hei_contact_addfile:
+hei_file_add:
     path:       /addFile
-    defaults:   { _controller: HEIContactBundle:Contact:addFile }
+    defaults:   { _controller: HEIContactBundle:File:add }
+
+hei_file_download:
+    path:       /downloadFile
+    defaults:   { _controller: HEIContactBundle:File:download }
+
+hei_file_remove:
+    path:       /removeFile
+    defaults:   { _controller: HEIContactBundle:File:remove }
 
 hei_contact_autocomplete:
     path:       /autocomplete

@@ -35,3 +35,4 @@ security:
     - { path: ^/contact/, role: ROLE_ADMIN }
     - { path: ^/$, role: ROLE_COMMERCIAL}
     - { path: ^/admin/, role: ROLE_ADMIN }
+    - { path: ^/register$, role: ROLE_DIRECTION }

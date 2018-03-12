@@ -3,12 +3,6 @@
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Intranet{% endblock %}</title>
-        {#{% stylesheets '@HEICoreBundle/Resources/public/css/bootstrap.css' %}#}
-            {#<link rel="stylesheet" href="{{ asset_url }}" type="text/css">#}
-        {#{% endstylesheets %}#}
-        {#{% javascripts '@HEICoreBundle/Resources/public/js/fontawesome-all.min.js' %}#}
-            {#<script defer src="{{ asset_url }}"></script>#}
-        {#{% endjavascripts %}#}
         {% block imports %}
             {% stylesheets '@HEICoreBundle/Resources/public/css/bootstrap.css' %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
@@ -42,24 +36,19 @@
             </div>
             <div class="row">
                 <div class="col-md-2 bg-secondary">
-                    <ul class="nav flex-column">
+                    <ul class="nav flex-column list-unstyled">
                         <li class="nav-item">
                             <a href="{{ path('hei_contact_add') }}" class="nav-link text-white"><h2>Contact</h2></a>
-                            <ul class="">
-                                <li>
-                                    <a href="{{ path('hei_contact_add') }}" class="nav-link text-white"><h4>Ajouter</h4></a>
-                                    <a href="{{ path('hei_contact_search') }}" class="nav-link text-white"><h4>Rechercher</h4></a>
-                                </li>
+                            <ul class="list-unstyled" style="margin-left: 20%">
+                                <li><a href="{{ path('hei_contact_add') }}" class="nav-link text-white"><h4>Ajouter</h4></a></li>
+                                <li><a href="{{ path('hei_contact_search') }}" class="nav-link text-white"><h4>Rechercher</h4></a></li>
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-white"><h2>Statistique</h2></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white"><h2>Planning</h2></a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white"><h2>Agenda</h2></a>
+                            <a href="#" class="nav-link text-white"><h2>Gestion</h2></a>
+                            <ul class="list-unstyled" style="margin-left: 20%">
+                                <li><a href="{{ path('fos_user_registration_register') }}" class="nav-link text-white"><h4>Utilisateurs</h4></a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>

@@ -2,6 +2,10 @@ hei_gestion_users:
     path:     /
     defaults: { _controller: HEIGestionBundle:Gestion:users }
 
-hei_gestion_addUser:
-    path:     /add
-    defaults: { _controller: HEIGestionBundle:Gestion:addUser }
+#hei_gestion_addUser:
+#    path:     /add
+#    defaults: { _controller: HEIGestionBundle:Gestion:addUser }
+
+hei_gestion_deleteUser:
+    path:     /delete
+    defaults: { _controller: HEIGestionBundle:Gestion:delete }

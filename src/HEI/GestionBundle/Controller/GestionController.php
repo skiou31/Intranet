@@ -11,6 +11,7 @@ namespace HEI\GestionBundle\Controller;
 
 use HEI\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class GestionController extends Controller
 {
@@ -25,8 +26,21 @@ class GestionController extends Controller
         ));
     }
 
-    public function addUser()
+//    public function addUser()
+//    {
+//        $user = new User();
+//    }
+
+    public function deleteAction(Request $request)
     {
-        $user = new User();
+        $userManager = $this->get('fos_user.user_manager');
+
+        $id = $request->query->get('id');
+
+        $user = $userManager->findUserBy(array('id' => $id));
+
+        $userManager->deleteUser($user);
+
+        return $this->redirectToRoute('hei_gestion_users');
     }
 }

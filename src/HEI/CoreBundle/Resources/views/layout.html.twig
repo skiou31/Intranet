@@ -44,12 +44,14 @@
                                 <li><a href="{{ path('hei_contact_search') }}" class="nav-link text-white"><h4>Rechercher</h4></a></li>
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link text-white"><h2>Gestion</h2></a>
-                            <ul class="list-unstyled" style="margin-left: 20%">
-                                <li><a href="{{ path('fos_user_registration_register') }}" class="nav-link text-white"><h4>Utilisateurs</h4></a></li>
-                            </ul>
-                        </li>
+                        {% if is_granted('ROLE_DIRECTION') %}
+                            <li class="nav-item">
+                                <a href="#" class="nav-link text-white"><h2>Gestion</h2></a>
+                                <ul class="list-unstyled" style="margin-left: 20%">
+                                    <li><a href="{{ path('hei_gestion_users') }}" class="nav-link text-white"><h4>Utilisateurs</h4></a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
                     </ul>
                 </div>
                 <div class="col-md-10">

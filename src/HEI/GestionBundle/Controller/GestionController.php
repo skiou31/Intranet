@@ -8,9 +8,8 @@
 
 namespace HEI\GestionBundle\Controller;
 
-
-use HEI\UserBundle\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\HttpFoundation\Request;
 
 class GestionController extends Controller
@@ -25,11 +24,6 @@ class GestionController extends Controller
             'users' => $users,
         ));
     }
-
-//    public function addUser()
-//    {
-//        $user = new User();
-//    }
 
     public function deleteAction(Request $request)
     {

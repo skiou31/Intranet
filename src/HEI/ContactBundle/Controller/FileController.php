@@ -53,7 +53,7 @@ class FileController extends Controller
                     'Chèque'        =>  'Chèque'
                 )
             ))
-            ->add('contact',     EntityType::class, array(
+            ->add('contact',    EntityType::class, array(
                 'class'         => Contact::class,
                 'choice_label'  =>  'nom',
                 'choices'       => $contactArray

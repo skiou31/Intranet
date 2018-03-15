@@ -7,7 +7,11 @@
             {% stylesheets '@HEICoreBundle/Resources/public/css/bootstrap.css' %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
             {% endstylesheets %}
-            {% javascripts '@HEICoreBundle/Resources/public/js/fontawesome-all.min.js' %}
+            {% javascripts
+                '@HEICoreBundle/Resources/public/js/jquery-3.2.1.min.js'
+                '@HEICoreBundle/Resources/public/js/fontawesome-all.min.js'
+                '@HEICoreBundle/Resources/public/js/bootstrap.min.js'
+            %}
                 <script defer src="{{ asset_url }}"></script>
             {% endjavascripts %}
         {% endblock %}
@@ -24,14 +28,24 @@
                 </div>
                 <div class="col-md-6"></div>
                 <div class="col-md-4 text-white text-right">
-                    <h5>
-                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                        Connecté en tant que {{ app.user.username }} -
-                        <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                    {% else %}
-                        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                    {% endif %}
-                    </h5>
+                    {#<h5>#}
+                    {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
+                        {#Connecté en tant que {{ app.user.username }} -#}
+                        {#<a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>#}
+                    {#{% else %}#}
+                        {#<a href="{{ path('fos_user_security_login') }}">Connexion</a>#}
+                    {#{% endif %}#}
+                    {#</h5>#}
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown button
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">

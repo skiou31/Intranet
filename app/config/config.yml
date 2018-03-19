@@ -91,5 +91,8 @@ easy_admin:
     entities:
         User:
             class : HEI\UserBundle\Entity\User
+            form  :
+              fields  :
+                - { property: 'dateAjout', type: 'datetime', type_options: { widget: 'text' } }
         Contact:
             class : HEI\ContactBundle\Entity\Contact

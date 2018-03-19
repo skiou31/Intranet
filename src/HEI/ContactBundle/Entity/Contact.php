@@ -86,7 +86,7 @@ class Contact
      * @var \DateTime
      *
      * @ORM\Column(name="dateAjout", type="date")
-     * @Assert\Date()
+     * @Assert\Type(type="\DateTime")
      */
     private $dateAjout;
 

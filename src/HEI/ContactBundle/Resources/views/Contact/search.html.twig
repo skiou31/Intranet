@@ -1,5 +1,19 @@
 {% extends 'HEICoreBundle::layout.html.twig' %}
 
+{% block imports %}
+    {{ parent() }}
+    {% javascripts
+        '@HEIContactBundle/Resources/public/js/jquery-3.2.1.min.js'
+        '@HEIContactBundle/Resources/public/js/jquery.dataTables.min.js'
+        '@HEIContactBundle/Resources/public/js/dataTables.bootstrap4.min.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    {% stylesheets '@HEIContactBundle/Resources/public/css/dataTables.bootstrap4.min.css' %}
+        <link rel="stylesheet" href="{{ asset_url }}">
+    {% endstylesheets %}
+{% endblock %}
+
 {% block title %}{{ parent() }} - Contact{% endblock %}
 
 {% block body %}
@@ -9,7 +23,7 @@
         {{ form(form) }}
     </div>
     {% if contacts is defined %}
-        <table class="table table-striped table-bordered" cellspacing="0" width="100%">
+        <table id="contacts" class="table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>Date ajout</th>
@@ -54,6 +68,8 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function () {
+            $('#contacts').DataTable();
+
             var inputCodePostal = $('#form_codePostal');
 
             inputCodePostal.change(function () {

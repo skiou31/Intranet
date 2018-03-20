@@ -157,7 +157,10 @@ class File
     }
 
     public function getUploadDir(){
-        return 'uploads/'.$this->type;
+        $contact = $this->contact;
+        $annee = $contact->getDateAjout()->format('Y');
+
+        return 'uploads/'.$this->type.'/'.$contact->getCommercial().'/'.$annee.'/'.$contact->getNom();
     }
 
     protected function getUploadRootDir(){

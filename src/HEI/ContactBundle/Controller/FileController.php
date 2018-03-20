@@ -68,13 +68,13 @@ class FileController extends Controller
 
             if ($form->isValid()) {
                 $file->upload($type, $id);
-
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($file);
                 $em->flush();
 
                 return $this->redirectToRoute('hei_contact_consult', array(
                     'id' => $id,
+                    'contact'   =>  $file->getContact()
                 ));
             }
         }

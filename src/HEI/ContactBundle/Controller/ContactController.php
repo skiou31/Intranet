@@ -10,11 +10,15 @@ namespace HEI\ContactBundle\Controller;
 
 use HEI\ContactBundle\Entity\Contact;
 use HEI\ContactBundle\Form\ContactType;
+use HEI\UserBundle\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
@@ -140,6 +144,156 @@ class ContactController extends Controller
 
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
             'contact' => $contact,
+        ));
+    }
+
+    public function modifyAction(Request $request)
+    {
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('HEIContactBundle:Contact')
+        ;
+
+        $contact = $repository->find($request->query->get('id'));
+
+        $builder = $this->get('form.factory')->createBuilder(FormType::class, $contact);
+
+        $listener = function (FormEvent $event) {
+            $data = $event->getData();
+
+            if (!$data) {
+                return;
+            }
+
+            $ville = $data["ville"];
+            $event->getForm()->add('ville', TextType::class, array('data' => $ville));
+        };
+
+        $builder
+            ->add('civilite',           ChoiceType::class, array(
+                'choices' => array(
+                    'Madame'   => 'Madame',
+                    'Monsieur' => 'Monsieur'
+                ),
+                'expanded' => true
+            ))
+            ->add('nom',                TextType::class)
+            ->add('prenom',             TextType::class)
+            ->add('adresse',            TextType::class)
+            ->add('codePostal',         NumberType::class)
+            ->add('ville',              ChoiceType::class)
+            ->addEventListener(          FormEvents::PRE_SUBMIT, $listener)
+            ->add('telephone',          TextType::class)
+            ->add('email',              EmailType::class, array(
+                'required'  =>  false,
+            ))
+            ->add('origine',            ChoiceType::class, array(
+                'choices'   => array(
+                    'Option'              =>  '',
+                    'internet'      =>  'internet',
+                    'communication' =>  'communication',
+                    'presse'        =>  'presse',
+                    'foire'         =>  'foire',
+                    'sponsor'       =>  'sponsor',
+                    'parrainage'    =>  'parrainage',
+                    'notoriete'     =>  'notoriete',
+                    'autre'         =>  'autre'
+                )
+            ))
+            ->add('origineDetail',      ChoiceType::class, array(
+                'required'  =>  false,
+                'choices'   =>  array(
+                    'Option'            =>  '',
+                    'Velux'             => 'velux',
+                    'Harnois'           => 'harnois',
+                    'combles-fr'        =>  'combles-fr',
+                    'centrale'          =>  'centrale',
+                    'Annonce Google'    =>  'annonce google',
+                    'Internet'          =>  'internet',
+                    'Véhicule'          => 'vehicule',
+                    'Panneau chantier'  =>  'panneau chantier',
+                    'TV avantages'      =>  'tv avantages',
+                    'Pages jaunes'      =>  'pages jaunes',
+                    'Visite déco'       =>  'visite deco',
+                    'Répondeur'         =>  'repondeur',
+                    'Ancien client'     =>  'ancien client'
+                )
+            ))
+            ->add('parrain',            TextType::class, array(
+                'required'  =>  false
+            ))
+            ->add('projet',             ChoiceType::class, array(
+                'choices'   =>  array(
+                    'Projet'        =>  '',
+                    'Combles'       =>  'combles',
+                    'Caves'         =>  'caves',
+                    'Pergolas'      =>  'pergola',
+                    'Extension'     =>  'extension',
+                    'Rénovation'    =>  'reno',
+                    'Surélévation'  =>  'surelevation',
+                    'Isolation'     =>  'isolation',
+                    'Velux'         =>  'velux'
+                )
+            ))
+            ->add('typeMaison',         ChoiceType::class, array(
+                'choices'   =>  array(
+                    'Type maison'   =>  '',
+                    'Plein pied'    =>  'plein pied',
+                    'W'             =>  'W',
+                    'Tradi'         =>  'tradi',
+                    'Phenix'       =>  'phenix'
+                ),
+                'required'  =>  false,
+            ))
+            ->add('anneeConstruction',  NumberType::class, array(
+                'required'  =>  false,
+            ))
+            ->add('commercial',               EntityType::class, array(
+                'class'  => User::class,
+                'choice_label'  =>  'nom'
+            ))
+        ;
+
+        if ($this->get('security.authorization_checker')->isGranted('ROLE_DIRECTION')) {
+            $builder->add('typeContact',        ChoiceType::class, array(
+                'choices'   =>  array(
+                    'Prospect'      =>  '0',
+                    'Client'        =>  '1',
+                    'Réceptionné'   =>  '2',
+                    'Annulé'        =>  '3'
+                ),
+                'placeholder'   =>  'Choisir'
+            ));
+        }
+
+        $builder
+            ->add('commentaire',        TextareaType::class, array(
+                'required'  =>  false,
+            ))
+            ->add('Enregistrer',        SubmitType::class)
+        ;
+
+        $form = $builder->getForm();
+
+        $form->setData($contact);
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($contact);
+                $em->flush();
+
+                return $this->redirectToRoute('hei_contact_consult', array(
+                    'id' => $contact->getId(),
+                ));
+            }
+        }
+
+        return $this->render('HEIContactBundle:Contact:modify.html.twig', array(
+            'form'  => $form->createView(),
         ));
     }
 

@@ -2,8 +2,10 @@
 
 namespace HEI\ContactBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use HEI\UserBundle\Entity\User;
 
 /**
  * Contact
@@ -84,7 +86,7 @@ class Contact
      * @var \DateTime
      *
      * @ORM\Column(name="dateAjout", type="date")
-     * @Assert\Date()
+     * @Assert\Type(type="\DateTime")
      */
     private $dateAjout;
 
@@ -147,11 +149,24 @@ class Contact
     private $commercial;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="$rendezVous", type="datetime", nullable=true)
+     * @Assert\Type(type="\DateTime")
+     */
+    private $rendezVous;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="commentaire", type="text", nullable=true)
      */
     private $commentaire;
+
+    /**
+     * @ORM\OneToMany(targetEntity="HEI\ContactBundle\Entity\File", mappedBy="contact")
+     */
+    private $files;
 
     /**
      * Contact constructor.
@@ -161,6 +176,7 @@ class Contact
     {
         $this->dateAjout = new \DateTime();
         $this->typeContact = 0;
+        $this->files = new ArrayCollection();
     }
 
 
@@ -565,7 +581,7 @@ class Contact
      *
      * @return Contact
      */
-    public function setCommercial($commercial)
+    public function setCommercial(User $commercial)
     {
         $this->commercial = $commercial;
 
@@ -605,5 +621,45 @@ class Contact
     {
         return $this->commentaire;
     }
-}
 
+    public function addFile(File $file)
+    {
+        $this->files[] = $file;
+
+        $file->setContact($this);
+    }
+
+    public function removeFile(File $file)
+    {
+        $this->files->removeElement($file);
+    }
+
+    public function getFiles()
+    {
+        return $this->files;
+    }
+
+    /**
+     * Set rendezVous
+     *
+     * @param \DateTime $rendezVous
+     *
+     * @return Contact
+     */
+    public function setRendezVous($rendezVous)
+    {
+        $this->rendezVous = $rendezVous;
+
+        return $this;
+    }
+
+    /**
+     * Get rendezVous
+     *
+     * @return \DateTime
+     */
+    public function getRendezVous()
+    {
+        return $this->rendezVous;
+    }
+}

@@ -8,6 +8,7 @@ use HEI\UserBundle\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -25,6 +26,8 @@ class ContactType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $currentDate = new \DateTime();
+
         $listener = function (FormEvent $event) {
             $data = $event->getData();
 
@@ -115,9 +118,29 @@ class ContactType extends AbstractType
             ->add('anneeConstruction',  NumberType::class, array(
                 'required'  =>  false,
             ))
-            ->add('commercial',               EntityType::class, array(
+            ->add('commercial',         EntityType::class, array(
                 'class'  => User::class,
                 'choice_label'  =>  'nom'
+            ))
+            ->add('rendezVous',         DateTimeType::class, array(
+                'date_format'   =>  'dd/MM/yyyy',
+                'placeholder' => array(
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                    'hour' => 'Heure', 'minute' => 'Minute'
+                ),
+                'years' =>  array(
+                    $currentDate->format('Y'),
+                    $currentDate->format('Y')+1
+                ),
+                'hours' =>  array(
+                    '07','08','09','10','11','12','13','14','15','16','17','18','19'
+                ),
+                'minutes'   =>  array(
+                    '00',
+                    '15',
+                    '30',
+                    '45'
+                )
             ))
             ->add('commentaire',        TextareaType::class, array(
                 'required'  =>  false,

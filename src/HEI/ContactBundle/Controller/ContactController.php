@@ -14,6 +14,7 @@ use HEI\UserBundle\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -149,6 +150,7 @@ class ContactController extends Controller
 
     public function modifyAction(Request $request)
     {
+        $currentDate = new \DateTime();
         $repository = $this
             ->getDoctrine()
             ->getManager()
@@ -183,7 +185,7 @@ class ContactController extends Controller
             ->add('adresse',            TextType::class)
             ->add('codePostal',         NumberType::class)
             ->add('ville',              ChoiceType::class)
-            ->addEventListener(          FormEvents::PRE_SUBMIT, $listener)
+            ->addEventListener(         FormEvents::PRE_SUBMIT, $listener)
             ->add('telephone',          TextType::class)
             ->add('email',              EmailType::class, array(
                 'required'  =>  false,
@@ -249,9 +251,29 @@ class ContactController extends Controller
             ->add('anneeConstruction',  NumberType::class, array(
                 'required'  =>  false,
             ))
-            ->add('commercial',               EntityType::class, array(
+            ->add('commercial',         EntityType::class, array(
                 'class'  => User::class,
                 'choice_label'  =>  'nom'
+            ))
+            ->add('rendezVous',         DateTimeType::class, array(
+                'date_format'   =>  'dd/MM/yyyy',
+                'placeholder' => array(
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
+                    'hour' => 'Heure', 'minute' => 'Minute'
+                ),
+                'years' =>  array(
+                    $currentDate->format('Y'),
+                    $currentDate->format('Y')+1
+                ),
+                'hours' =>  array(
+                    '07','08','09','10','11','12','13','14','15','16','17','18','19'
+                ),
+                'minutes'   =>  array(
+                    '00',
+                    '15',
+                    '30',
+                    '45'
+                )
             ))
         ;
 

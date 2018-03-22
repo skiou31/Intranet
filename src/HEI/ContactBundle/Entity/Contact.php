@@ -149,6 +149,14 @@ class Contact
     private $commercial;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="$rendezVous", type="datetime", nullable=true)
+     * @Assert\Type(type="\DateTime")
+     */
+    private $rendezVous;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="commentaire", type="text", nullable=true)
@@ -629,5 +637,29 @@ class Contact
     public function getFiles()
     {
         return $this->files;
+    }
+
+    /**
+     * Set rendezVous
+     *
+     * @param \DateTime $rendezVous
+     *
+     * @return Contact
+     */
+    public function setRendezVous($rendezVous)
+    {
+        $this->rendezVous = $rendezVous;
+
+        return $this;
+    }
+
+    /**
+     * Get rendezVous
+     *
+     * @return \DateTime
+     */
+    public function getRendezVous()
+    {
+        return $this->rendezVous;
     }
 }

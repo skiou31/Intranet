@@ -151,10 +151,17 @@ class Contact
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="$rendezVous", type="datetime", nullable=true)
+     * @ORM\Column(name="rendezVous", type="datetime", nullable=true)
      * @Assert\Type(type="\DateTime")
      */
     private $rendezVous;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="statut", type="integer")
+     */
+    private $statut;
 
     /**
      * @var string
@@ -176,6 +183,7 @@ class Contact
     {
         $this->dateAjout = new \DateTime();
         $this->typeContact = 0;
+        $this->statut = 0;
         $this->files = new ArrayCollection();
     }
 
@@ -661,5 +669,29 @@ class Contact
     public function getRendezVous()
     {
         return $this->rendezVous;
+    }
+
+    /**
+     * Set statut
+     *
+     * @param integer $statut
+     *
+     * @return Contact
+     */
+    public function setStatut($statut)
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    /**
+     * Get statut
+     *
+     * @return integer
+     */
+    public function getStatut()
+    {
+        return $this->statut;
     }
 }

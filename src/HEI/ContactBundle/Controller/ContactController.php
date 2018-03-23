@@ -273,17 +273,18 @@ class ContactController extends Controller
                     '15',
                     '30',
                     '45'
-                )
+                ),
+                'required'  =>  false
             ))
         ;
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_DIRECTION')) {
             $builder->add('typeContact',        ChoiceType::class, array(
                 'choices'   =>  array(
-                    'Prospect'      =>  '0',
-                    'Client'        =>  '1',
-                    'Réceptionné'   =>  '2',
-                    'Annulé'        =>  '3'
+                    'Prospect'      =>  0,
+                    'Client'        =>  1,
+                    'Réceptionné'   =>  2,
+                    'Annulé'        =>  3
                 ),
                 'placeholder'   =>  'Choisir'
             ));
@@ -302,6 +303,13 @@ class ContactController extends Controller
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
+
+            if ($contact->getTypeContact() === 1) {
+                $contact->setStatut(2);
+            }
+            elseif ($contact->getTypeContact() === 2) {
+                $contact->setStatut(6);
+            }
 
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();

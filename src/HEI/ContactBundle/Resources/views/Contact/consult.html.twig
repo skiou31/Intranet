@@ -73,13 +73,13 @@
     <div class="row" style="padding: 1% 0 1% 0">
         <div class="col">
             <div class="btn-group" style="width: 100%" role="group" aria-label="Avancement du contact">
-                <button class="btn btn-primary btn-block" style="margin: 0">Enregistré</button>
-                <button class="btn btn-secondary btn-block" style="margin: 0">Devis ajouté</button>
-                <button class="btn btn-secondary btn-block" style="margin: 0">Signature</button>
-                <button class="btn btn-secondary btn-block" style="margin: 0">DT / PC</button>
-                <button class="btn btn-secondary btn-block" style="margin: 0">Démarrage</button>
-                <button class="btn btn-secondary btn-block" style="margin: 0">Chantier</button>
-                <button class="btn btn-secondary btn-block" style="margin: 0">Réception</button>
+                <button class="btn btn-block" style="margin: 0" id="btn0">Enregistré</button>
+                <button class="btn btn-block" style="margin: 0" id="btn1">Devis ajouté</button>
+                <button class="btn btn-block" style="margin: 0" id="btn2">Signature</button>
+                <button class="btn btn-block" style="margin: 0" id="btn3">DT / PC</button>
+                <button class="btn btn-block" style="margin: 0" id="btn4">Démarrage</button>
+                <button class="btn btn-block" style="margin: 0" id="btn5">Chantier</button>
+                <button class="btn btn-block" style="margin: 0" id="btn6">Réception</button>
             </div>
         </div>
     </div>
@@ -110,6 +110,46 @@
 
     <script>
         $(document).ready(function() {
+            var statut = {{ contact[0].statut }};
+
+            switch (statut) {
+                case 0:
+                    $('#btn0').addClass("btn-success");
+                    break;
+                case 1:
+                    for (var i=0; i<=1; i++){
+                        $('#btn'+i).addClass("btn-success")
+                    }
+                    break;
+                case 2:
+                    for (var i=0; i<=2; i++){
+                        $('#btn'+i).addClass("btn-success")
+                    }
+                    break;
+                case 3:
+                    for (var i=0; i<=3; i++){
+                        $('#btn'+i).addClass("btn-success")
+                    }
+                    break;
+                case 4:
+                    for (var i=0; i<=4; i++){
+                        $('#btn'+i).addClass("btn-success")
+                    }
+                    break;
+                case 5:
+                    for (var i=0; i<=5; i++){
+                        $('#btn'+i).addClass("btn-success")
+                    }
+                    break;
+                case 6:
+                    for (var i=0; i<=6; i++){
+                        $('#btn'+i).addClass("btn-success")
+                    }
+                    break;
+                default:
+                    break;
+            }
+
             $('#files').DataTable();
         });
     </script>

@@ -20,6 +20,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+/**
+ * Class FileController
+ * @package HEI\ContactBundle\Controller
+ */
 class FileController extends Controller
 {
     /**
@@ -51,12 +55,15 @@ class FileController extends Controller
                     'Plan'          =>  'Plan',
                     'Administratif' =>  'Administratif',
                     'Chèque'        =>  'Chèque'
-                )
+                ),
+                'preferred_choices' =>  array($type),
+                'disabled'          =>  true
             ))
             ->add('contact',    EntityType::class, array(
                 'class'         => Contact::class,
-                'choice_label'  =>  'nom',
-                'choices'       => $contactArray
+                'choice_label'  => 'nom',
+                'choices'       => $contactArray,
+                'disabled'      => true
             ))
             ->add('Envoyer',    SubmitType::class)
         ;
@@ -65,6 +72,13 @@ class FileController extends Controller
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
+
+            if ($type === "Devis") {
+                $contact->setStatut(1);
+            }
+            elseif ($type === "Administratif") {
+                $contact->setStatut(3);
+            }
 
             if ($form->isValid()) {
                 $file->upload($type, $id);
@@ -85,6 +99,10 @@ class FileController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     */
     public function downloadAction(Request $request)
     {
         $contactId = $request->query->get('id');
@@ -115,6 +133,11 @@ class FileController extends Controller
         }
     }
 
+    /**
+     * @param Request $request
+     * @return Response
+     *
+     */
     public function removeAction(Request $request)
     {
         $contactId = $request->query->get('id');

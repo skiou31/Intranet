@@ -151,10 +151,17 @@ class Contact
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="$rendezVous", type="datetime", nullable=true)
+     * @ORM\Column(name="rendezVous", type="datetime", nullable=true)
      * @Assert\Type(type="\DateTime")
      */
     private $rendezVous;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="statut", type="integer")
+     */
+    private $status;
 
     /**
      * @var string

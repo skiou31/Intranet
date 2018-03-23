@@ -140,7 +140,8 @@ class ContactType extends AbstractType
                     '15',
                     '30',
                     '45'
-                )
+                ),
+                'required'  =>  false
             ))
             ->add('commentaire',        TextareaType::class, array(
                 'required'  =>  false,

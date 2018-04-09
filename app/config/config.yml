@@ -96,3 +96,5 @@ easy_admin:
                 - { property: 'dateAjout', type: 'datetime', type_options: { widget: 'text' } }
         Contact:
             class : HEI\ContactBundle\Entity\Contact
+        File:
+            class : HEI\ContactBundle\Entity\File

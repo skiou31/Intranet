@@ -57,7 +57,6 @@ class FileController extends Controller
                     'Chèque'        =>  'Chèque'
                 ),
                 'preferred_choices' =>  array($type),
-                'disabled'          =>  true
             ))
             ->add('contact',    EntityType::class, array(
                 'class'         => Contact::class,

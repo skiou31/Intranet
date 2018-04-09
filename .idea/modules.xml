@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://E:/BinanceFolio/.idea/BinanceFolio.iml" filepath="E:/BinanceFolio/.idea/BinanceFolio.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/Intranet.iml" filepath="$PROJECT_DIR$/.idea/Intranet.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../amenago/.idea/amenago.iml" filepath="$PROJECT_DIR$/../amenago/.idea/amenago.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/countdown/.idea/countdown.iml" filepath="$USER_HOME$/Desktop/countdown/.idea/countdown.iml" />
       <module fileurl="file://$USER_HOME$/Desktop/exo/.idea/exo.iml" filepath="$USER_HOME$/Desktop/exo/.idea/exo.iml" />
       <module fileurl="file://$USER_HOME$/Desktop/test/.idea/test.iml" filepath="$USER_HOME$/Desktop/test/.idea/test.iml" />
     </modules>

@@ -57,5 +57,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="exo" />
     <orderEntry type="module" module-name="test" />
+    <orderEntry type="module" module-name="BinanceFolio" />
+    <orderEntry type="module" module-name="countdown" />
+    <orderEntry type="module" module-name="amenago" />
   </component>
 </module>

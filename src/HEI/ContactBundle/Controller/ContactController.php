@@ -104,6 +104,10 @@ class ContactController extends Controller
             ->add('adresse',        TextType::class, array(
                 'required'  =>  false
             ))
+            ->add('commercial',         EntityType::class, array(
+                'class'  => User::class,
+                'choice_label'  =>  'nom'
+            ))
             ->add('Rechercher',     SubmitType::class)
         ;
 

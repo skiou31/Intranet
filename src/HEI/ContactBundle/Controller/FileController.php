@@ -71,7 +71,7 @@ class FileController extends Controller
 
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
-
+            $file->setContact($contact);
             if ($type === "Devis") {
                 $contact->setStatut(1);
             }
@@ -151,12 +151,13 @@ class FileController extends Controller
         $contact = $repository->getContactWithFiles($contactId);
         $files = $contact[0]->getFiles();
 
-        foreach ($files as $key => $value) {
-            if ($value->getNom() === $filename) {
+        foreach ($files as $key => $file) {
+            if ($file->getNom() === $filename) {
                 $em = $this->getDoctrine()->getManager();
-                $em->remove($value);
+                $em->remove($file);
                 $em->flush();
             }
+            $file->removeFile();
         }
 
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(

@@ -166,4 +166,9 @@ class File
     protected function getUploadRootDir(){
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
+
+    public function removeFile()
+    {
+        unlink($this->getUploadDir().'/'.$this->getNom());
+    }
 }

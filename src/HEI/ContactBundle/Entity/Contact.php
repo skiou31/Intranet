@@ -447,7 +447,12 @@ class Contact
      */
     public function setOrigineDetail($origineDetail)
     {
-        $this->origineDetail = $origineDetail;
+        if ($this->origine == "parrainage") {
+            $this->origineDetail = "parrainage";
+        }
+        else {
+            $this->origineDetail = $origineDetail;
+        }
 
         return $this;
     }

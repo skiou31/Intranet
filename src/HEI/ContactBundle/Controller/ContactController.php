@@ -50,6 +50,16 @@ class ContactController extends Controller
                 $em->persist($contact);
                 $em->flush();
 
+                $mailSarbacane = $this->container->get('hei.mail_sarbacane');
+                $mailSarbacane->addToWelcomeList(
+                    $contact->getCivilite(),
+                    $contact->getPrenom(),
+                    $contact->getNom(),
+                    $contact->getEmail(),
+                    $contact->getTelephone(),
+                    $contact->getRendezVous()->format("Y-m-d H:i:s")
+                );
+
                 return $this->redirectToRoute('hei_contact_consult', array(
                     'id' => $contact->getId(),
                 ));
@@ -152,8 +162,14 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function modifyAction(Request $request)
     {
+        $mailSarbacane = $this->container->get('hei.mail_sarbacane');
+
         $currentDate = new \DateTime();
         $repository = $this
             ->getDoctrine()
@@ -239,7 +255,8 @@ class ContactController extends Controller
                     'Rénovation'    =>  'reno',
                     'Surélévation'  =>  'surelevation',
                     'Isolation'     =>  'isolation',
-                    'Velux'         =>  'velux'
+                    'Velux'         =>  'velux',
+                    'Trappe cave'   =>  'trappe cave'
                 )
             ))
             ->add('typeMaison',         ChoiceType::class, array(
@@ -310,9 +327,27 @@ class ContactController extends Controller
 
             if ($contact->getTypeContact() === 1) {
                 $contact->setStatut(2);
+
+                $mailSarbacane->addToSignatureList(
+                    $contact->getCivilite(),
+                    $contact->getPrenom(),
+                    $contact->getNom(),
+                    $contact->getEmail(),
+                    $contact->getTelephone(),
+                    $contact->getRendezVous()->format("Y-m-d H:i:s")
+                );
             }
             elseif ($contact->getTypeContact() === 2) {
                 $contact->setStatut(6);
+
+                $mailSarbacane->addToReceptionList(
+                    $contact->getCivilite(),
+                    $contact->getPrenom(),
+                    $contact->getNom(),
+                    $contact->getEmail(),
+                    $contact->getTelephone(),
+                    $contact->getRendezVous()->format("Y-m-d H:i:s")
+                );
             }
 
             if ($form->isValid()) {

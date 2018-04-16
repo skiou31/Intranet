@@ -1,0 +1,3 @@
+hei_services_homepage:
+    path:     /
+    defaults: { _controller: HEIServicesBundle:Default:index }

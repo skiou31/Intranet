@@ -1,0 +1,3 @@
+services:
+    hei.mail_sarbacane:
+        class: HEI\ServicesBundle\MailSarbacane\HEIMailSarbacane

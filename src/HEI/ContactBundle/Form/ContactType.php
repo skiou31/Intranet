@@ -102,7 +102,8 @@ class ContactType extends AbstractType
                     'Rénovation'    =>  'reno',
                     'Surélévation'  =>  'surelevation',
                     'Isolation'     =>  'isolation',
-                    'Velux'         =>  'velux'
+                    'Velux'         =>  'velux',
+                    'Trappe cave'   =>  'trappe cave'
                 )
             ))
             ->add('typeMaison',         ChoiceType::class, array(

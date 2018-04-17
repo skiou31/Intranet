@@ -14,6 +14,10 @@ hei_contact_modify:
     path:       /modify
     defaults:   { _controller: HEIContactBundle:Contact:modify }
 
+hei_contact_addComment:
+    path:       /addComment
+    defaults:   { _controller: HEIContactBundle:Contact:addComment }
+
 hei_file_add:
     path:       /addFile
     defaults:   { _controller: HEIContactBundle:File:add }

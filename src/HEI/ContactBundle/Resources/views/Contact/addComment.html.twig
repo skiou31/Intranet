@@ -1,0 +1,11 @@
+{% extends 'HEICoreBundle::layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Contact{% endblock %}
+
+{% block body %}
+    <h3>Ajouter un commentaire</h3>
+
+    <div class="well">
+        {{ form(form) }}
+    </div>
+{% endblock %}

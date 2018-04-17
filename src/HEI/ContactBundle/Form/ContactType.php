@@ -3,6 +3,7 @@
 namespace HEI\ContactBundle\Form;
 
 use Doctrine\ORM\EntityRepository;
+use HEI\ContactBundle\Entity\Comment;
 use HEI\ContactBundle\Entity\Contact;
 use HEI\UserBundle\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -144,8 +145,8 @@ class ContactType extends AbstractType
                 ),
                 'required'  =>  false
             ))
-            ->add('commentaire',        TextareaType::class, array(
-                'required'  =>  false,
+            ->add('PS',                 TextareaType::class, array(
+                'required'  =>  false
             ))
             ->add('Enregistrer',        SubmitType::class)
         ;

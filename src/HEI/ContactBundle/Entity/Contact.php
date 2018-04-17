@@ -166,9 +166,9 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="commentaire", type="text", nullable=true)
+     * @ORM\Column(name="ps", type="string", length=255, nullable=true)
      */
-    private $commentaire;
+    private $ps;
 
     /**
      * @ORM\OneToMany(targetEntity="HEI\ContactBundle\Entity\File", mappedBy="contact")
@@ -611,30 +611,6 @@ class Contact
         return $this->commercial;
     }
 
-    /**
-     * Set commentaire
-     *
-     * @param string $commentaire
-     *
-     * @return Contact
-     */
-    public function setCommentaire($commentaire)
-    {
-        $this->commentaire = $commentaire;
-
-        return $this;
-    }
-
-    /**
-     * Get commentaire
-     *
-     * @return string
-     */
-    public function getCommentaire()
-    {
-        return $this->commentaire;
-    }
-
     public function addFile(File $file)
     {
         $this->files[] = $file;
@@ -698,5 +674,21 @@ class Contact
     public function getStatut()
     {
         return $this->statut;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPs()
+    {
+        return $this->ps;
+    }
+
+    /**
+     * @param string $ps
+     */
+    public function setPs($ps)
+    {
+        $this->ps = $ps;
     }
 }

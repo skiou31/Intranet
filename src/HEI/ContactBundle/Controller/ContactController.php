@@ -8,6 +8,7 @@
 
 namespace HEI\ContactBundle\Controller;
 
+use HEI\ContactBundle\Entity\Comment;
 use HEI\ContactBundle\Entity\Contact;
 use HEI\ContactBundle\Form\ContactType;
 use HEI\UserBundle\Entity\User;
@@ -15,6 +16,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -152,13 +154,19 @@ class ContactController extends Controller
      * @return Response
      */
     public function consultAction(Request $request) {
-        $repository = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
+        $repositoryContact     = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
+        $repositoryCommentaire = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Comment');
+        $id                    = $request->query->get('id');
 
-        $contact = $repository->getContactWithFiles($request->query->get('id'));
+        $contact      = $repositoryContact->getContactWithFiles($id);
+        $commentaires = $repositoryCommentaire->findBy(
+            array('contact'   =>  $id)
+        );
 
 
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
-            'contact' => $contact,
+            'contact'       => $contact,
+            'commentaires'  =>  $commentaires
         ));
     }
 
@@ -297,6 +305,9 @@ class ContactController extends Controller
                 ),
                 'required'  =>  false
             ))
+            ->add('PS',                 TextareaType::class, array(
+                'required'  =>  false,
+            ))
         ;
 
         if ($this->get('security.authorization_checker')->isGranted('ROLE_DIRECTION')) {
@@ -312,9 +323,6 @@ class ContactController extends Controller
         }
 
         $builder
-            ->add('commentaire',        TextareaType::class, array(
-                'required'  =>  false,
-            ))
             ->add('Enregistrer',        SubmitType::class)
         ;
 
@@ -362,6 +370,51 @@ class ContactController extends Controller
         }
 
         return $this->render('HEIContactBundle:Contact:modify.html.twig', array(
+            'form'  => $form->createView(),
+        ));
+    }
+
+    public function addCommentAction(Request $request)
+    {
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('HEIContactBundle:Contact')
+        ;
+        $id = $request->query->get("id");
+        $contact = $repository->findOneBy(array('id' => $id));
+        $contactArray = array($contact);
+
+        $comment = new Comment();
+        $formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $comment);
+
+        $formBuilder
+            ->add('comment',    TextareaType::class)
+            ->add('contact',    EntityType::class, array(
+                'class'         => Contact::class,
+                'choice_label'  => 'nom',
+                'choices'       => $contactArray,
+            ))
+            ->add('Ajouter',     SubmitType::class)
+        ;
+
+        $form = $formBuilder->getForm();
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
+
+                return $this->redirectToRoute('hei_contact_consult', array(
+                    'id' => $id,
+                ));
+            }
+        }
+
+        return $this->render('HEIContactBundle:Contact:addComment.html.twig', array(
             'form'  => $form->createView(),
         ));
     }

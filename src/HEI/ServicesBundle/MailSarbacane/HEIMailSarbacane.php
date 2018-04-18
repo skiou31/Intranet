@@ -11,27 +11,35 @@ namespace HEI\ServicesBundle\MailSarbacane;
 
 class HEIMailSarbacane
 {
-    public function addToWelcomeList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
+    public function addToWelcomeRdvList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
     {
-        $partUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
+        // Add to welcome list
+        $partWelcomeUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
+        $this->addToList($partWelcomeUrl);
 
-        $response = $this->addToList($partUrl);
+        //Add to rendez-vous list
+        $partRdvUrl = "bJ4kZRd5RPKwFSh-oXVXPg/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
+        $this->addToList($partRdvUrl);
 
-        return $response;
+        return null;
     }
 
-    public function removeFromWelcomeList($email)
+    public function removeFromWelcomeRdvList($email)
     {
-        $partUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?email=".$email;
+        // Remove from welcome list
+        $partWelcomeUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?email=".$email;
+        $this->removeFromList($partWelcomeUrl);
 
-        $this->removeFromList($partUrl);
+        // Remove from RDV list
+        $partRdvUrl = "bJ4kZRd5RPKwFSh-oXVXPg/contacts?email=".$email;
+        $this->removeFromList($partRdvUrl);
 
         return;
     }
 
     public function addToSignatureList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
     {
-        $this->removeFromWelcomeList($email);
+        $this->removeFromWelcomeRdvList($email);
 
         $partUrl = "66BthsznQpmU7rCcSGe3dg/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
 

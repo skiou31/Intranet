@@ -53,7 +53,7 @@ class ContactController extends Controller
                 $em->flush();
 
                 $mailSarbacane = $this->container->get('hei.mail_sarbacane');
-                $mailSarbacane->addToWelcomeList(
+                $mailSarbacane->addToWelcomeRdvList(
                     $contact->getCivilite(),
                     $contact->getPrenom(),
                     $contact->getNom(),

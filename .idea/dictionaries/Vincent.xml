@@ -43,16 +43,21 @@
       <w>envoyer</w>
       <w>fichier</w>
       <w>fichiers</w>
+      <w>fier</w>
       <w>foire</w>
       <w>frère</w>
       <w>gestion</w>
       <w>hallez</w>
       <w>hearteaux</w>
       <w>heicore</w>
+      <w>interne</w>
       <w>inversed</w>
       <w>jérôme</w>
       <w>liste</w>
+      <w>modif</w>
+      <w>modifié</w>
       <w>notoriete</w>
+      <w>nouveau</w>
       <w>nullable</w>
       <w>ombrouck</w>
       <w>origine</w>
@@ -70,7 +75,9 @@
       <w>reçoive</w>
       <w>réception</w>
       <w>rénovation</w>
+      <w>réussi</w>
       <w>rôle</w>
+      <w>salut</w>
       <w>sarbacane</w>
       <w>statistique</w>
       <w>statut</w>
@@ -82,6 +89,7 @@
       <w>surélévation</w>
       <w>sébastien</w>
       <w>tant</w>
+      <w>templating</w>
       <w>thieffry</w>
       <w>travaux</w>
       <w>télécharger</w>
@@ -91,6 +99,8 @@
       <w>velux</w>
       <w>victorien</w>
       <w>villes</w>
+      <w>vous</w>
+      <w>whouf</w>
     </words>
   </dictionary>
 </component>

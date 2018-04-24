@@ -11,6 +11,15 @@ namespace HEI\ServicesBundle\MailSarbacane;
 
 class HEIMailSarbacane
 {
+    /**
+     * @param $civilite
+     * @param $prenom
+     * @param $nom
+     * @param $email
+     * @param $telephone
+     * @param $rendezVous
+     * @return null
+     */
     public function addToWelcomeRdvList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
     {
         // Add to welcome list
@@ -24,6 +33,9 @@ class HEIMailSarbacane
         return null;
     }
 
+    /**
+     * @param $email
+     */
     public function removeFromWelcomeRdvList($email)
     {
         // Remove from welcome list
@@ -37,6 +49,15 @@ class HEIMailSarbacane
         return;
     }
 
+    /**
+     * @param $civilite
+     * @param $prenom
+     * @param $nom
+     * @param $email
+     * @param $telephone
+     * @param $rendezVous
+     * @return mixed
+     */
     public function addToSignatureList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
     {
         $this->removeFromWelcomeRdvList($email);
@@ -47,6 +68,9 @@ class HEIMailSarbacane
         return $response;
     }
 
+    /**
+     * @param $email
+     */
     public function removeFromSignatureList($email)
     {
         $partUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?email=".$email;
@@ -56,6 +80,15 @@ class HEIMailSarbacane
         return;
     }
 
+    /**
+     * @param $civilite
+     * @param $prenom
+     * @param $nom
+     * @param $email
+     * @param $telephone
+     * @param $rendezVous
+     * @return mixed
+     */
     public function addToReceptionList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
     {
         $this->removeFromSignatureList($email);
@@ -66,6 +99,10 @@ class HEIMailSarbacane
         return $response;
     }
 
+    /**
+     * @param $partUrl
+     * @return mixed
+     */
     public function addToList($partUrl)
     {
         $curl = curl_init();
@@ -101,6 +138,10 @@ class HEIMailSarbacane
         return $response;
     }
 
+    /**
+     * @param $partUrl
+     * @return mixed
+     */
     public function removeFromList($partUrl)
     {
         $curl = curl_init();
@@ -136,6 +177,10 @@ class HEIMailSarbacane
         return $response;
     }
 
+    /**
+     * @param $string
+     * @return mixed
+     */
     function myUrlEncode($string) {
         $entities = array('%40', '%C3%A9');
         $replacements = array("@", "é");

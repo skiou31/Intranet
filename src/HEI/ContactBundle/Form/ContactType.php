@@ -143,7 +143,7 @@ class ContactType extends AbstractType
                     '30',
                     '45'
                 ),
-                'required'  =>  false
+                'required'  =>  true
             ))
             ->add('PS',                 TextareaType::class, array(
                 'required'  =>  false

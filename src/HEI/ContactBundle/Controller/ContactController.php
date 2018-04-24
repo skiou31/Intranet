@@ -62,6 +62,9 @@ class ContactController extends Controller
                     $contact->getRendezVous()->format("Y-m-d H:i:s")
                 );
 
+                $mailInterne =$this->container->get('hei.mail_interne');
+                $mailInterne->mailAddContact();
+
                 return $this->redirectToRoute('hei_contact_consult', array(
                     'id' => $contact->getId(),
                 ));
@@ -362,6 +365,9 @@ class ContactController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($contact);
                 $em->flush();
+
+                $mailInterne =$this->container->get('hei.mail_interne');
+                $mailInterne->mailAddContact();
 
                 return $this->redirectToRoute('hei_contact_consult', array(
                     'id' => $contact->getId(),

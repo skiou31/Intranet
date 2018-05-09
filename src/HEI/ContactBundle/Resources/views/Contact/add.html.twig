@@ -3,8 +3,13 @@
 {% block title %}{{ parent() }} - Contact{% endblock %}
 
 {% block body %}
-    <h3>Ajouter un contact</h3>
+    <div class="alert alert-danger" role="alert" style="padding-bottom: 0; margin-top: 16px">
+        {% for message in app.session.flashbag.get('warning') %}
+            <p>Message flash : {{ message }}</p>
+        {% endfor %}
+    </div>
 
+    <h3>Ajouter un contact</h3>
     <div class="well">
         {{ form(form) }}
     </div>

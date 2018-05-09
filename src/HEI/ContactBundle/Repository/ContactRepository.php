@@ -12,6 +12,8 @@ use Doctrine\ORM\EntityRepository;
 class ContactRepository extends EntityRepository
 {
     /**
+     * Search a contact by his name, surname, town, CP and commercial
+     *
      * @param $contact
      * @return array
      */
@@ -38,6 +40,12 @@ class ContactRepository extends EntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    /**
+     * Get a contacts with all the files attached
+     *
+     * @param $id
+     * @return array
+     */
     public function getContactWithFiles($id)
     {
         $qb = $this

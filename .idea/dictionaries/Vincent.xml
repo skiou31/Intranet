@@ -7,10 +7,12 @@
       <w>ajout</w>
       <w>ajouter</w>
       <w>ajouté</w>
+      <w>aller</w>
       <w>annee</w>
       <w>autocomplete</w>
       <w>autre</w>
       <w>avancement</w>
+      <w>avec</w>
       <w>bien</w>
       <w>bonjour</w>
       <w>buildform</w>
@@ -32,6 +34,7 @@
       <w>definir</w>
       <w>delille</w>
       <w>devis</w>
+      <w>devriez</w>
       <w>dombrowski</w>
       <w>dropdown</w>
       <w>déconnexion</w>
@@ -41,6 +44,8 @@
       <w>enregistrer</w>
       <w>enregistré</w>
       <w>envoyer</w>
+      <w>existant</w>
+      <w>existe</w>
       <w>fichier</w>
       <w>fichiers</w>
       <w>fier</w>
@@ -56,6 +61,7 @@
       <w>liste</w>
       <w>modif</w>
       <w>modifié</w>
+      <w>mêmes</w>
       <w>notoriete</w>
       <w>nouveau</w>
       <w>nullable</w>
@@ -79,6 +85,7 @@
       <w>rôle</w>
       <w>salut</w>
       <w>sarbacane</w>
+      <w>semblerait</w>
       <w>statistique</w>
       <w>statut</w>
       <w>stephane</w>
@@ -100,6 +107,7 @@
       <w>victorien</w>
       <w>villes</w>
       <w>vous</w>
+      <w>vérifier</w>
       <w>whouf</w>
     </words>
   </dictionary>

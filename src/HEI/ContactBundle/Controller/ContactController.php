@@ -44,30 +44,65 @@ class ContactController extends Controller
         $contact = new Contact();
         $form = $this->get('form.factory')->create(ContactType::class, $contact);
 
+
         if ($request->isMethod('POST')) {
             $form->handleRequest($request);
 
-            if ($form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($contact);
-                $em->flush();
+            $repository = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
+            $contacts = $repository->findBy(
+                array(
+                    "nom"    =>  $contact->getNom(),
+                    "ville"   => $contact->getVille()
+                )
+            );
+            $countContacts = count($contacts);
 
-                $mailSarbacane = $this->container->get('hei.mail_sarbacane');
-                $mailSarbacane->addToWelcomeRdvList(
-                    $contact->getCivilite(),
-                    $contact->getPrenom(),
-                    $contact->getNom(),
-                    $contact->getEmail(),
-                    $contact->getTelephone(),
-                    $contact->getRendezVous()->format("Y-m-d H:i:s")
-                );
+            $contacts2 = $repository->findBy(
+                array(
+                    "nom"    =>  $contact->getNom(),
+                    "telephone"   => $contact->getTelephone()
+                )
+            );
+            $countContacts2 = count($contacts2);
 
-                $mailInterne =$this->container->get('hei.mail_interne');
-                $mailInterne->mailAddContact();
+            if ($countContacts == 0) {
+                if ($form->isValid()) {
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($contact);
+                    $em->flush();
 
-                return $this->redirectToRoute('hei_contact_consult', array(
-                    'id' => $contact->getId(),
-                ));
+                    $mailSarbacane = $this->container->get('hei.mail_sarbacane');
+                    $mailSarbacane->addToWelcomeRdvList(
+                        $contact->getCivilite(),
+                        $contact->getPrenom(),
+                        $contact->getNom(),
+                        $contact->getEmail(),
+                        $contact->getTelephone(),
+                        $contact->getRendezVous()->format("Y-m-d H:i:s")
+                    );
+
+                    $mailInterne =$this->container->get('hei.mail_interne');
+                    $mailInterne->mailAddContact();
+
+                    if ($countContacts2 != 0) {
+                        $session = $request->getSession();
+                        $session->getFlashBag()->add('info', 'Il semblerait qu\'un contact avec les mêmes nom et téléphone existe ... Vous devriez vérifier');
+
+                        return $this->redirectToRoute('hei_contact_consult', array(
+                            'id' => $contact->getId(),
+                            'message'   =>  true
+                        ));
+                    }
+                    else {
+                        return $this->redirectToRoute('hei_contact_consult', array(
+                            'id' => $contact->getId()
+                        ));
+                    }
+                }
+            }
+            else {
+                $session = $request->getSession();
+                $session->getFlashBag()->add('warning', 'Il semblerait qu\'un contact avec les mêmes nom et adresse existe ...');
             }
         }
 
@@ -160,6 +195,14 @@ class ContactController extends Controller
         $repositoryContact     = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
         $repositoryCommentaire = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Comment');
         $id                    = $request->query->get('id');
+        $message               = $request->query->get('message');
+
+        if ($message == true) {
+            $session = $request->getSession();
+            $session->getFlashBag()->add('info', 'Il semblerait qu\'un contact avec les mêmes nom et téléphone existe ... Vous devriez aller vérifier');
+        }
+
+        $contacts = $request->query->get('contacts');
 
         $contact      = $repositoryContact->getContactWithFiles($id);
         $commentaires = $repositoryCommentaire->findBy(
@@ -168,8 +211,9 @@ class ContactController extends Controller
 
 
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
-            'contact'       => $contact,
-            'commentaires'  =>  $commentaires
+            'contact'       =>  $contact,
+            'commentaires'  =>  $commentaires,
+            'contacts'      =>  $contacts
         ));
     }
 

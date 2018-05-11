@@ -1,6 +1,6 @@
 hei_marge:
     resource: "@HEIMargeBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /marge
 
 hei_gestion:
     resource: "@HEIGestionBundle/Resources/config/routing.yml"

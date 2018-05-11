@@ -90,7 +90,6 @@ class ContactController extends Controller
 
                         return $this->redirectToRoute('hei_contact_consult', array(
                             'id' => $contact->getId(),
-                            'message'   =>  true
                         ));
                     }
                     else {
@@ -195,12 +194,6 @@ class ContactController extends Controller
         $repositoryContact     = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
         $repositoryCommentaire = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Comment');
         $id                    = $request->query->get('id');
-        $message               = $request->query->get('message');
-
-        if ($message == true) {
-            $session = $request->getSession();
-            $session->getFlashBag()->add('info', 'Il semblerait qu\'un contact avec les mêmes nom et téléphone existe ... Vous devriez aller vérifier');
-        }
 
         $contacts = $request->query->get('contacts');
 

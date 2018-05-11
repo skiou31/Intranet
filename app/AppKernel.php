@@ -23,6 +23,7 @@ class AppKernel extends Kernel
             new EasyCorp\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new HEI\GestionBundle\HEIGestionBundle(),
             new HEI\ServicesBundle\HEIServicesBundle(),
+            new HEI\MargeBundle\HEIMargeBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

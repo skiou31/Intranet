@@ -1,0 +1,3 @@
+hei_marge_homepage:
+    path:     /
+    defaults: { _controller: HEIMargeBundle:Default:index }

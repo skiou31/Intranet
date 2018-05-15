@@ -20,17 +20,17 @@ class HEIMailSarbacane
      * @param $rendezVous
      * @return null
      */
-    public function addToWelcomeRdvList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
+    public function addToWelcomeRdvList($civilite, $prenom, $nom, $email, $telephone, $dateRendezVous, $heureRendezVous)
     {
         // Add to welcome list
-        $partWelcomeUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
-        $this->addToList($partWelcomeUrl);
+        $partWelcomeUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$dateRendezVous."&HeureRendezVous=".$heureRendezVous;
+        $response = $this->addToList($partWelcomeUrl);
 
         //Add to rendez-vous list
-        $partRdvUrl = "bJ4kZRd5RPKwFSh-oXVXPg/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
-        $this->addToList($partRdvUrl);
+        $partRdvUrl = "bJ4kZRd5RPKwFSh-oXVXPg/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$dateRendezVous."&HeureRendezVous=".$heureRendezVous;
+        $response .= $this->addToList($partRdvUrl);
 
-        return null;
+        return $response;
     }
 
     /**
@@ -58,11 +58,11 @@ class HEIMailSarbacane
      * @param $rendezVous
      * @return mixed
      */
-    public function addToSignatureList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
+    public function addToSignatureList($civilite, $prenom, $nom, $email, $telephone, $dateRendezVous, $heureRendezVous)
     {
         $this->removeFromWelcomeRdvList($email);
 
-        $partUrl = "66BthsznQpmU7rCcSGe3dg/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
+        $partUrl = "66BthsznQpmU7rCcSGe3dg/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$dateRendezVous."&HeureRendezVous=".$heureRendezVous;
 
         $response = $this->addToList($partUrl);
         return $response;
@@ -73,7 +73,7 @@ class HEIMailSarbacane
      */
     public function removeFromSignatureList($email)
     {
-        $partUrl = "e_g6-RurS3aQHYm0P_GMmQ/contacts?email=".$email;
+        $partUrl = "66BthsznQpmU7rCcSGe3dg/contacts?email=".$email;
 
         $this->removeFromList($partUrl);
 
@@ -89,11 +89,11 @@ class HEIMailSarbacane
      * @param $rendezVous
      * @return mixed
      */
-    public function addToReceptionList($civilite, $prenom, $nom, $email, $telephone, $rendezVous)
+    public function addToReceptionList($civilite, $prenom, $nom, $email, $telephone)
     {
         $this->removeFromSignatureList($email);
 
-        $partUrl = "RZJlRHuVTYaCF82arSE27A/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone."&RendezVous=".$rendezVous;
+        $partUrl = "RZJlRHuVTYaCF82arSE27A/contacts?Civilité=".$civilite."&Prénom=".$prenom."&Nom=".$nom."&email=".$email."&phone=".$telephone;
 
         $response = $this->addToList($partUrl);
         return $response;

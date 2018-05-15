@@ -72,13 +72,14 @@ class ContactController extends Controller
                     $em->flush();
 
                     $mailSarbacane = $this->container->get('hei.mail_sarbacane');
-                    $mailSarbacane->addToWelcomeRdvList(
+                    $response = $mailSarbacane->addToWelcomeRdvList(
                         $contact->getCivilite(),
                         $contact->getPrenom(),
                         $contact->getNom(),
                         $contact->getEmail(),
                         $contact->getTelephone(),
-                        $contact->getRendezVous()->format("Y-m-d H:i:s")
+                        $contact->getRendezVous()->format("d/m/Y"),
+                        $contact->getRendezVous()->format("H:i")
                     );
 
                     $mailInterne =$this->container->get('hei.mail_interne');
@@ -94,7 +95,8 @@ class ContactController extends Controller
                     }
                     else {
                         return $this->redirectToRoute('hei_contact_consult', array(
-                            'id' => $contact->getId()
+                            'id' => $contact->getId(),
+                            'response'  =>  $response
                         ));
                     }
                 }
@@ -194,6 +196,7 @@ class ContactController extends Controller
         $repositoryContact     = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Contact');
         $repositoryCommentaire = $this->getDoctrine()->getManager()->getRepository('HEIContactBundle:Comment');
         $id                    = $request->query->get('id');
+        $response              = $request->query->get('response');
 
         $contacts = $request->query->get('contacts');
 
@@ -206,7 +209,8 @@ class ContactController extends Controller
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
             'contact'       =>  $contact,
             'commentaires'  =>  $commentaires,
-            'contacts'      =>  $contacts
+            'contacts'      =>  $contacts,
+            'response'      =>  $response
         ));
     }
 
@@ -382,7 +386,8 @@ class ContactController extends Controller
                     $contact->getNom(),
                     $contact->getEmail(),
                     $contact->getTelephone(),
-                    $contact->getRendezVous()->format("Y-m-d H:i:s")
+                    $contact->getRendezVous()->format("d/m/Y"),
+                    $contact->getRendezVous()->format("H:i")
                 );
             }
             elseif ($contact->getTypeContact() === 2) {
@@ -394,7 +399,8 @@ class ContactController extends Controller
                     $contact->getNom(),
                     $contact->getEmail(),
                     $contact->getTelephone(),
-                    $contact->getRendezVous()->format("Y-m-d H:i:s")
+                    $contact->getRendezVous()->format("d/m/Y"),
+                    $contact->getRendezVous()->format("H:i")
                 );
             }
 
@@ -417,6 +423,10 @@ class ContactController extends Controller
         ));
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     */
     public function addCommentAction(Request $request)
     {
         $repository = $this

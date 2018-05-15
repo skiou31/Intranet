@@ -1,3 +1,7 @@
 hei_core_homepage:
     path:     /
     defaults: { _controller: HEICoreBundle:Core:index }
+
+hri_core_service:
+    path:     /testService
+    defaults: { _controller: HEICoreBundle:Core:test }

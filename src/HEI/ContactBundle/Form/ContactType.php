@@ -2,9 +2,6 @@
 
 namespace HEI\ContactBundle\Form;
 
-use Doctrine\ORM\EntityRepository;
-use HEI\ContactBundle\Entity\Comment;
-use HEI\ContactBundle\Entity\Contact;
 use HEI\UserBundle\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;

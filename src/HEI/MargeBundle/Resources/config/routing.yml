@@ -1,3 +1,7 @@
 hei_marge_homepage:
     path:     /
-    defaults: { _controller: HEIMargeBundle:Default:index }
+    defaults: { _controller: HEIMargeBundle:Marge:index }
+
+hei_marge_nouveauChantier:
+    path:     /new
+    defaults: { _controller: HEIMargeBundle:Marge:nouveauChantier }

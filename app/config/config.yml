@@ -67,10 +67,13 @@ doctrine:
 # Swiftmailer Configuration
 swiftmailer:
     transport: '%mailer_transport%'
+    auth_mode:  '%mailer_auth_mode%'
+    encryption: '%mailer_encryption%'
     host: '%mailer_host%'
+    port: '%mailer_port%'
     username: '%mailer_user%'
     password: '%mailer_password%'
-    spool: { type: memory }
+#    spool: { type: memory }
 
 assetic:
     debug:          '%kernel.debug%'

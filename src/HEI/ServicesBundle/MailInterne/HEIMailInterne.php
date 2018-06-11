@@ -28,17 +28,30 @@ class HEIMailInterne
     }
 
     /**
+     * @param $destinataire string
+     * @param $nom string
+     * @param $prenom string
+     * @param $adresse string
+     * @param $telephone string
+     * @param $email string
+     * @param $rendezVous string
+     * @param $commentaire string
      * @throws Error
      */
-    public function mailAddContact()
+    public function mailAddContact($destinataire, $nom, $prenom, $adresse, $telephone, $email, $rendezVous, $commentaire)
     {
         $message = (new \Swift_Message('Un nouveau contact pour vous'))
-            ->setFrom('multispaces-harnois@orange.fr')
-            ->setTo('v.fuger-harnois@orange.fr')
+            ->setFrom('v.fuger-harnois@orange.fr')
+            ->setTo($destinataire)
             ->setBody(
-                $this->templating->render(
-                    'Emails/addContact.html.twig'
-                ),
+                $this->templating->render('Emails/addContact.html.twig', array(
+                    "nom"           =>  $nom.' '.$prenom,
+                    "adresse"       =>  $adresse,
+                    "telephone"     =>  $telephone,
+                    "mail"          =>  $email,
+                    "rendezVous"    =>  $rendezVous,
+                    "commentaire"   =>  $commentaire
+                )),
                 'text/html'
             )
         ;
@@ -47,17 +60,30 @@ class HEIMailInterne
     }
 
     /**
+     * @param $destinataire string
+     * @param $nom string
+     * @param $prenom string
+     * @param $adresse string
+     * @param $telephone string
+     * @param $email string
+     * @param $rendezVous string
+     * @param $commentaire string
      * @throws Error
      */
-    public function mailModifContact()
+    public function mailModifContact($destinataire, $nom, $prenom, $adresse, $telephone, $email, $rendezVous, $commentaire)
     {
         $message = (new \Swift_Message('Un de vos contact a été modifié'))
-            ->setFrom('multispaces-harnois@orange.fr')
-            ->setTo('v.fuger@orange.fr')
+            ->setFrom('v.fuger-harnois@orange.fr')
+            ->setTo($destinataire)
             ->setBody(
-                $this->templating->render(
-                    'Emails/modifContact.html.twig'
-                ),
+                $this->templating->render('Emails/addContact.html.twig', array(
+                    "nom"           =>  $nom.' '.$prenom,
+                    "adresse"       =>  $adresse,
+                    "telephone"     =>  $telephone,
+                    "mail"          =>  $email,
+                    "rendezVous"    =>  $rendezVous,
+                    "commentaire"   =>  $commentaire
+                )),
                 'text/html'
             )
         ;

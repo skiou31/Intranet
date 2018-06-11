@@ -1,5 +1,14 @@
-<h3>Whouf</h3>
+<h3>Vous avez un nouveau contact !</h3>
 
-<p>Salut Vincent ! Tu as réussi à envoyer un mail !
-
-Je suis fier de toi.</p>
+<ul>
+    <li>Nom : {{ nom }}</li>
+    <li>Adresse : {{ adresse }}</li>
+    <li>Téléphone : <a href="tel:{{ telephone }}">{{ telephone }}</a></li>
+    <li>Email : <a href="mailto:{{ mail }}">{{ mail }}</a></li>
+    {% if rendezVous is defined %}
+        <li>Rendez-vous : {{ rendezVous }}</li>
+    {% endif %}
+    {% if commentaire is defined %}
+        <li>Commentaire : {{ commentaire }}</li>
+    {% endif %}
+</ul>

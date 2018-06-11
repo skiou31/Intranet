@@ -205,7 +205,6 @@ class ContactController extends Controller
             array('contact'   =>  $id)
         );
 
-
         return $this->render('HEIContactBundle:Contact:consult.html.twig', array(
             'contact'       =>  $contact,
             'commentaires'  =>  $commentaires,
@@ -410,7 +409,16 @@ class ContactController extends Controller
                 $em->flush();
 
                 $mailInterne =$this->container->get('hei.mail_interne');
-                $mailInterne->mailAddContact();
+                $mailInterne->mailAddContact(
+                    $contact->getCommercial()->getEmail(),
+                    $contact->getNom(),
+                    $contact->getPrenom(),
+                    $contact->getAdresse().' '.$contact->getCodePostal().' '.$contact->getVille(),
+                    $contact->Telephone(),
+                    $contact->getEmail(),
+                    $contact->getRendezVous()->format('d/m/Y H:i'),
+                    $contact->getPs()
+                );
 
                 return $this->redirectToRoute('hei_contact_consult', array(
                     'id' => $contact->getId(),

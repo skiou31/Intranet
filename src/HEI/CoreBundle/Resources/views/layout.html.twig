@@ -30,15 +30,6 @@
                     </a>
                 </div>
                 <div class="col-md-8"></div>
-                {#<div class="col-md-4 text-white text-right">#}
-                    {#{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}#}
-                        {#Connecté en tant que {{ app.user.username }}#}
-                        {#-#}
-                        {#<a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>#}
-                    {#{% else %}#}
-                        {#<a href="{{ path('fos_user_security_login') }}">Connexion</a>#}
-                    {#{% endif %}#}
-                {#</div>#}
                 <div class="col-md-2 text-white">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                         <ul id="menu">
@@ -72,6 +63,9 @@
                                 <a href="#" class="nav-link text-white"><h2>Gestion</h2></a>
                                 <ul class="list-unstyled" style="margin-left: 20%">
                                     <li><a href="{{ path('hei_gestion_users') }}" class="nav-link text-white"><h4>Utilisateurs</h4></a></li>
+                                </ul>
+                                <ul class="list-unstyled" style="margin-left: 20%">
+                                    <li><a href="{{ path('hei_marge_homepage') }}" class="nav-link text-white"><h4>Marges</h4></a></li>
                                 </ul>
                             </li>
                         {% endif %}

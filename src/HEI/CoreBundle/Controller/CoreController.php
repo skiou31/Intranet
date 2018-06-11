@@ -18,15 +18,10 @@ class CoreController extends Controller
 
     public function testAction()
     {
-        $mailSarbacane = $this->container->get('hei.mail_sarbacane');
+        $mailInterne = $this->container->get('hei.mail_interne');
 
-        $rdv = "12/12/2018 14:15";
-        $rdvArray = explode(" ", $rdv);
+        $mailInterne->mailAddContact("v.fuger-harnois@orange.fr", "Fuger", "Vincent", "76 rue du général de Gaulle 59370 Mons", "0671303941", "skiou31@gmail.com", "25/05/2018 15:00", "LOOOOOOOOOOOL");
 
-        $response = $mailSarbacane->addToReceptionList("Monsieur", "Sébastien", "Hallez", "hallez.harnois@orange.fr", "0600000000");
-
-        return $this->render('HEICoreBundle:Core:test.html.twig', array(
-           'response'   =>  $response
-        ));
+        return $this->render('HEICoreBundle:Core:test.html.twig');
     }
 }

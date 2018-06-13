@@ -46,6 +46,13 @@ class User extends BaseUser
     private $telephone;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="pourcentageCommission", type="integer")
+     */
+    private $pourcentageCommission;
+
+    /**
      * User constructor.
      */
     public function __construct()
@@ -138,4 +145,28 @@ class User extends BaseUser
 
 
 
+
+    /**
+     * Set pourcentageCommission
+     *
+     * @param integer $pourcentageCommission
+     *
+     * @return User
+     */
+    public function setPourcentageCommission($pourcentageCommission)
+    {
+        $this->pourcentageCommission = $pourcentageCommission;
+
+        return $this;
+    }
+
+    /**
+     * Get pourcentageCommission
+     *
+     * @return integer
+     */
+    public function getPourcentageCommission()
+    {
+        return $this->pourcentageCommission;
+    }
 }

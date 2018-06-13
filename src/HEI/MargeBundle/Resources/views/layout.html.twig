@@ -1,0 +1,25 @@
+{% extends 'HEICoreBundle::layout.html.twig' %}
+
+{% block title %}{{ parent() }} - Marges{% endblock %}
+{% block imports %}{% endblock %}
+
+{% block body %}
+    <div class="btn-toolbar" role="toolbar" aria-label="Menu" style="margin-top: 20px">
+        <div class="btn-group mr-2" role="group">
+            <a href="#" class="badge badge-secondary">Acceuil</a>
+        </div>
+        <div class="btn-group mr-2" role="group">
+            <a href="#" class="badge badge-secondary">Les Chantiers</a>
+        </div>
+        <div class="btn-group mr-2" role="group">
+            <a href="{{ path('hei_marge_nouveauChantier') }}" class="badge badge-secondary">Nouveau Chantier</a>
+        </div>
+        <div class="btn-group mr-2" role="group">
+            <a href="#" class="badge badge-secondary">Configuration</a>
+        </div>
+    </div>
+    <br>
+
+    {% block content %}
+    {% endblock %}
+{% endblock %}

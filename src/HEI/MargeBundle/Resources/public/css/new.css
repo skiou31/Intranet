@@ -1,0 +1,48 @@
+#bootstrap-overrides table {
+    width: 100%;
+    border: 1px solid #a6c9e2;
+    border-radius: 5px;
+    background: #fcfdfd 50% bottom repeat-x;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+}
+
+#bootstrap-overrides th, td, caption {
+    vertical-align: middle;
+}
+
+#bootstrap-overrides caption {
+    caption-side: unset;
+    border: 1px solid #c5dbec;
+    background: #dfeffc 50% 50% repeat-x;
+    font-weight: bold;
+    color: #2e6e9e;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+#bootstrap-overrides th, td, caption {
+    padding: 15px 10px 15px 5px;
+}
+
+#bootstrap-overrides .form-control {
+    padding: 0.187rem 0.375rem;
+    font-size: 0.9rem;
+}
+
+#bootstrap-overrides .input-group-text {
+    padding-top: unset;
+    padding-bottom: unset;
+    font-size: 0.9rem;
+}
+
+#bootstrap-overrides select.form-control:not([size]):not([multiple]) {
+    height: unset;
+}
+
+.header {
+    background: #5c9ccc 50% 50% repeat-x;
+    color: #fff;
+    font-weight: bold;
+}

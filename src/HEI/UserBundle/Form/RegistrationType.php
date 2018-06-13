@@ -20,6 +20,7 @@ class RegistrationType extends AbstractType
         $builder->add('nom');
         $builder->add('prenom');
         $builder->add('telephone');
+        $builder->add('pourcentageCommission');
         $builder->add('roles', CollectionType::class, array(
             'entry_type'    =>  ChoiceType::class,
             'entry_options' =>  array(

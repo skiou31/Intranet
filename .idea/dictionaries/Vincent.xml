@@ -31,6 +31,7 @@
       <w>conducteur</w>
       <w>connecté</w>
       <w>contactbundle</w>
+      <w>defaut</w>
       <w>definir</w>
       <w>delille</w>
       <w>destinataire</w>
@@ -53,6 +54,7 @@
       <w>foire</w>
       <w>frère</w>
       <w>gestion</w>
+      <w>généraux</w>
       <w>hallez</w>
       <w>hearteaux</w>
       <w>heicore</w>
@@ -60,9 +62,11 @@
       <w>inversed</w>
       <w>jérôme</w>
       <w>liste</w>
+      <w>margebundle</w>
       <w>marges</w>
       <w>modif</w>
       <w>modifié</w>
+      <w>montant</w>
       <w>mêmes</w>
       <w>notoriete</w>
       <w>nouveau</w>
@@ -71,14 +75,18 @@
       <w>origine</w>
       <w>parrain</w>
       <w>parrainage</w>
+      <w>pourcentage</w>
       <w>prenom</w>
       <w>presse</w>
+      <w>prix</w>
       <w>profil</w>
       <w>projet</w>
       <w>prénom</w>
       <w>rechercher</w>
       <w>recherhcer</w>
       <w>rendez</w>
+      <w>renseignements</w>
+      <w>rensignements</w>
       <w>resultat</w>
       <w>reçoive</w>
       <w>réception</w>
@@ -88,12 +96,14 @@
       <w>salut</w>
       <w>sarbacane</w>
       <w>semblerait</w>
+      <w>soit</w>
       <w>statistique</w>
       <w>statut</w>
       <w>stephane</w>
       <w>stéphane</w>
       <w>suis</w>
       <w>suivi</w>
+      <w>supplément</w>
       <w>supprimer</w>
       <w>surélévation</w>
       <w>sébastien</w>
@@ -105,7 +115,9 @@
       <w>téléphone</w>
       <w>utilisateur</w>
       <w>utilisateurs</w>
+      <w>valeur</w>
       <w>velux</w>
+      <w>vente</w>
       <w>victorien</w>
       <w>villes</w>
       <w>vous</w>

@@ -1,0 +1,662 @@
+{% extends 'HEIMargeBundle::layout.html.twig' %}
+
+{% block imports %}
+    {{ parent() }}
+    {% stylesheets
+        '@HEICoreBundle/Resources/public/css/bootstrap.css'
+        '@HEICoreBundle/Resources/public/css/dropdown.css'
+        '@HEIMargeBundle/Resources/public/css/new.css'
+    %}
+        <link rel="stylesheet" href="{{ asset_url }}" type="text/css">
+    {% endstylesheets %}
+{% endblock %}
+
+{% block content %}
+    {{ form_start(form) }}
+
+    {{ form_errors(form) }}
+    <table>
+        <caption>Renseignements généraux</caption>
+        <tbody>
+        <tr>
+            <td>CHANTIER</td>
+            <td>{{ form_widget(form.contact) }}</td>
+            <td>Source du chantier</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td>VILLE</td>
+            <td><input type="text"></td>
+            <td>Type de chantier</td>
+            <td>{{ form_widget(form.typeChantier) }}</td>
+        </tr>
+        <tr>
+            <td>Date début</td>
+            <td>{{ form_widget(form.dateDebut) }}</td>
+            <td>Date fin</td>
+            <td>{{ form_widget(form.dateFin) }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <table>
+        <caption>Renseignements vente</caption>
+        <tbody>
+        <tr>
+            <td>Prix de vente HT</td>
+            <td>{{ form_widget(form.prixVente) }}</td>
+            <td>Vendeur</td>
+            <td>{{ form_widget(form.commercial) }}</td>
+            <td>Commission <span class="text-info font-weight-bold">{{ contact.commercial.pourcentageCommission }}%</span> soit</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantCommission) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Supplément</td>
+            <td>{{ form_widget(form.commissionSupplementaire) }}</td>
+            <td colspan="2">Commission suppléments</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantCommissionSuplementaire) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <br><br><br>
+    <table>
+        <caption>Frais de réalisation (main d'oeuvre) et commercialisation</caption>
+        <tbody>
+        <tr>
+            <td>Equipe</td>
+            <td aria-colspan="3"> {{ form_widget(form.equipe) }}</td>
+        </tr>
+        <tr class="header">
+            <th>Désignation</th>
+            <th>Prévisionnels</th>
+            <th>Montants Prévionnel</th>
+            <th>Réalisés</th>
+            <th>Montants réels</th>
+        </tr>
+        <tr>
+            <td>Charpente</td>
+            <td>{{ form_widget(form.jourPrevuCharpente) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantPrevuCharpente) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td>{{ form_widget(form.jourReelCharpente) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantReelCharpente) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Finitions</td>
+            <td>{{ form_widget(form.jourPrevuFinitions) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantPrevuFinitions) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td>{{ form_widget(form.jourReelFinitions) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantReelFinitions) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <table>
+        <caption>Fournitures</caption>
+        <tbody>
+        <tr class="header">
+            <th>Désignation</th>
+            <th>Prévisionnels</th>
+            <th>Montants Prévisionnel</th>
+            <th>Réalisés</th>
+            <th>Montants réels</th>
+        </tr>
+        <tr>
+            <td>Forfait charpente</td>
+            <td>Nombre :{{ form_widget(form.forfaitPrevuCharpente) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantForfaitPrevuCharpente) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td>Nombre :{{ form_widget(form.forfaitReelCharpente) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantForfaitReelCharpente) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Bois (+ Velux)</td>
+            <td></td>
+            <td>{{ form_widget(form.boisVeluxPrevu) }}</td>
+            <td></td>
+            <td>{{ form_widget(form.boisVeluxReel) }}</td>
+        </tr>
+        <tr>
+            <td>Forfait isolation</td>
+            <td>Nombre :{{ form_widget(form.forfaitPrevuIsolation) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantForfaitPrevuIsolation) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td>Nombre :{{ form_widget(form.forfaitReelIsolation) }}</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.montantForfaitReelIsolation) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Escalier</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.escalier) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.escalierReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Electricite</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.electricitePrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.electriciteReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Isolation</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.isolationPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.isolationReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Velux et Acces.</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.veluxEtAccesPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.veluxEtAccesReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Plancher</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.plancherPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.plancherReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Placard</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.placardPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.placardReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Plomberie</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.plomberiePrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.plomberieReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Parquet</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.parquetPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.parquetReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Peinture</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.peinturePrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.peintureReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Porte</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.portePrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.porteReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <table>
+        <caption>Résultats</caption>
+        <tbody>
+        <tr class="header">
+            <th>Désignation</th>
+            <th>Montants Prévisionnel</th>
+            <th>Montants réels</th>
+        </tr>
+        <tr>
+            <td>Total des coûts</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.totalCoutsPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.totalCoutsReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Marge en valeur</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.margeEnValeurPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.margeEnValeurReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>% Marge</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.pourcentageMargePrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">%</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.pourcentageMargeReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">%</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>Marge / Jour</td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.margeJourPrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.margeJourReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+
+    {{ form_end(form) }}
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            //Calcul et remplissage montant commission supplémentaire
+            $('#hei_margebundle_chantier_prixVente').change(function() {
+                var prixVente = $('#hei_margebundle_chantier_prixVente').val();
+                var pourcentageCom = {{ contact.commercial.pourcentageCommission }}
+                var mtCom = Math.round(prixVente*(pourcentageCom/100));
+
+                $('#hei_margebundle_chantier_montantCommission').val(mtCom);
+            });
+
+            //Calcul et remplissage montant commission supplémentaire
+            $('#hei_margebundle_chantier_commissionSupplementaire').change(function() {
+                var commissionSupp = $('#hei_margebundle_chantier_commissionSupplementaire').val();
+                var tauxCommissionSupp = {{ defauts[0].valeur }};
+                var mtComSupp = Math.round(commissionSupp*(tauxCommissionSupp/100));
+
+                $('#hei_margebundle_chantier_montantCommissionSuplementaire').val(mtComSupp);
+            });
+
+            //Calcul et remplissage montant prévu et réel jour charpente
+            $('#hei_margebundle_chantier_jourPrevuCharpente').change(function() {
+                var jourCharpente = $('#hei_margebundle_chantier_jourPrevuCharpente').val();
+                var valJourCharpente = {{ defauts[2].valeur }};
+                var mtPrevuCharpente = jourCharpente*valJourCharpente;
+
+                $('#hei_margebundle_chantier_montantPrevuCharpente').val(mtPrevuCharpente);
+            });
+            $('#hei_margebundle_chantier_jourReelCharpente').change(function() {
+                var jourReelCharpente = $('#hei_margebundle_chantier_jourReelCharpente').val();
+                var valJourCharpente = {{ defauts[2].valeur }};
+                var mtReelCharpente = jourReelCharpente*valJourCharpente;
+
+                $('#hei_margebundle_chantier_montantReelCharpente').val(mtReelCharpente);
+            });
+
+            //Calcul et remplissage montant prévu et réel jour finitions
+            $('#hei_margebundle_chantier_jourPrevuFinitions').change(function() {
+                var jourFinitions = $('#hei_margebundle_chantier_jourPrevuFinitions').val();
+                var valJourFinitions = {{ defauts[3].valeur }};
+                var mtPrevuFinitions = jourFinitions*valJourFinitions;
+
+                $('#hei_margebundle_chantier_montantPrevuFinitions').val(mtPrevuFinitions);
+            });
+            $('#hei_margebundle_chantier_jourReelFinitions').change(function() {
+                var jourReelFinitions = $('#hei_margebundle_chantier_jourReelFinitions').val();
+                var valJourFinitions = {{ defauts[3].valeur }};
+                var mtReelFinitions = jourReelFinitions*valJourFinitions;
+
+                $('#hei_margebundle_chantier_montantReelFinitions').val(mtReelFinitions);
+            });
+
+            //Calcul et remplissage montant prévu et réel forfait charpente
+            $('#hei_margebundle_chantier_forfaitPrevuCharpente').change(function() {
+                var forfaitCharpente = $('#hei_margebundle_chantier_forfaitPrevuCharpente').val();
+                var valForfaitCharpente = {{ defauts[1].valeur }};
+                var mtPrevuForfaitCharpente = forfaitCharpente*valForfaitCharpente;
+
+                $('#hei_margebundle_chantier_montantForfaitPrevuCharpente').val(mtPrevuForfaitCharpente);
+            });
+            $('#hei_margebundle_chantier_forfaitReelCharpente').change(function() {
+                var forfaitReelCharpente = $('#hei_margebundle_chantier_forfaitReelCharpente').val();
+                var valForfaitCharpente = {{ defauts[1].valeur }};
+                var mtReelForfaitCharpente = forfaitReelCharpente*valForfaitCharpente;
+
+                $('#hei_margebundle_chantier_montantForfaitReelCharpente').val(mtReelForfaitCharpente);
+            });
+
+            //Calcul et remplissage montant prévu et réel forfait isolation
+            $('#hei_margebundle_chantier_forfaitPrevuIsolation').change(function() {
+                var forfaitIsolation = $('#hei_margebundle_chantier_forfaitPrevuIsolation').val();
+                var valForfaitIsolation = {{ defauts[4].valeur }};
+                var mtPrevuForfaitIsolation = forfaitIsolation*valForfaitIsolation;
+
+                $('#hei_margebundle_chantier_montantForfaitPrevuIsolation').val(mtPrevuForfaitIsolation);
+            });
+            $('#hei_margebundle_chantier_forfaitReelIsolation').change(function() {
+                var forfaitReelIsolation = $('#hei_margebundle_chantier_forfaitReelIsolation').val();
+                var valForfaitIsolation = {{ defauts[4].valeur }};
+                var mtReelForfaitIsolation = forfaitReelIsolation*valForfaitIsolation;
+
+                $('#hei_margebundle_chantier_montantForfaitReelIsolation').val(mtReelForfaitIsolation);
+            });
+
+            //Résultats
+            $('input').change(function() {
+                //Stockage des coûts commissions
+                var commission      = +$('#hei_margebundle_chantier_montantCommission').val();
+                var commissionSupp  = +$('#hei_margebundle_chantier_montantCommissionSuplementaire').val();
+
+                //Stockage des coûts prévus
+                var charpente       = +$('#hei_margebundle_chantier_montantPrevuCharpente').val();
+                var finitions       = +$('#hei_margebundle_chantier_montantPrevuFinitions').val();
+                var ffCharpente     = +$('#hei_margebundle_chantier_montantForfaitPrevuCharpente').val();
+                var boisVelux       = +$('#hei_margebundle_chantier_boisVeluxPrevu').val();
+                var ffIsolation     = +$('#hei_margebundle_chantier_montantForfaitPrevuIsolation').val();
+                var escalier        = +$('#hei_margebundle_chantier_escalier').val();
+                var electricite     = +$('#hei_margebundle_chantier_electricitePrevu').val();
+                var isolation       = +$('#hei_margebundle_chantier_isolationPrevu').val();
+                var veluxEtAcces    = +$('#hei_margebundle_chantier_veluxEtAccesPrevu').val();
+                var plancher        = +$('#hei_margebundle_chantier_plancherPrevu').val();
+                var placard         = +$('#hei_margebundle_chantier_placardPrevu').val();
+                var plomberie       = +$('#hei_margebundle_chantier_plomberiePrevu').val();
+                var parquet         = +$('#hei_margebundle_chantier_parquetPrevu').val();
+                var peinture        = +$('#hei_margebundle_chantier_peinturePrevu').val();
+                var porte           = +$('#hei_margebundle_chantier_portePrevu').val();
+
+                //Total des coûts prévu
+                var totalCoutsPrevu = commission+commissionSupp+charpente+finitions+ffCharpente+boisVelux+ffIsolation+escalier+electricite+isolation+veluxEtAcces+plancher+placard+plomberie+parquet+peinture+porte;
+                $('#hei_margebundle_chantier_totalCoutsPrevu').val(totalCoutsPrevu);
+
+                //Stockage des coûts réel
+                var charpenteReel       = +$('#hei_margebundle_chantier_montantReelCharpente').val();
+                var finitionsReel       = +$('#hei_margebundle_chantier_montantReelFinitions').val();
+                var ffCharpenteReel     = +$('#hei_margebundle_chantier_montantForfaitReelCharpente').val();
+                var boisVeluxReel       = +$('#hei_margebundle_chantier_boisVeluxReel').val();
+                var ffIsolationReel     = +$('#hei_margebundle_chantier_montantForfaitReelIsolation').val();
+                var escalierReel        = +$('#hei_margebundle_chantier_escalierReel').val();
+                var electriciteReel     = +$('#hei_margebundle_chantier_electriciteReel').val();
+                var isolationReel       = +$('#hei_margebundle_chantier_isolationReel').val();
+                var veluxEtAccesReel    = +$('#hei_margebundle_chantier_veluxEtAccesReel').val();
+                var plancherReel        = +$('#hei_margebundle_chantier_plancherReel').val();
+                var placardReel         = +$('#hei_margebundle_chantier_placardReel').val();
+                var plomberieReel       = +$('#hei_margebundle_chantier_plomberieReel').val();
+                var parquetReel         = +$('#hei_margebundle_chantier_parquetReel').val();
+                var peintureReel        = +$('#hei_margebundle_chantier_peintureReel').val();
+                var porteReel           = +$('#hei_margebundle_chantier_porteReel').val();
+
+                //Total des coûts réel
+                var totalCoutsReel = commission+commissionSupp+charpenteReel+finitionsReel+ffCharpenteReel+boisVeluxReel+ffIsolationReel+escalierReel+electriciteReel+isolationReel+veluxEtAccesReel+plancherReel+placardReel+plomberieReel+parquetReel+peintureReel+porteReel;
+                $('#hei_margebundle_chantier_totalCoutsReel').val(totalCoutsReel);
+
+                //Marge en valeur
+                var prixVente = +$('#hei_margebundle_chantier_prixVente').val();
+
+                var margeValeurPrevu = prixVente - totalCoutsPrevu;
+                $('#hei_margebundle_chantier_margeEnValeurPrevu').val(margeValeurPrevu);
+
+                var margeValeurReel = prixVente - totalCoutsReel;
+                $('#hei_margebundle_chantier_margeEnValeurReel').val(margeValeurReel);
+
+                //Pourcentage de marge
+                var pourcentageMargePrevu = (margeValeurPrevu * 100) / prixVente;
+                $('#hei_margebundle_chantier_pourcentageMargePrevu').val(pourcentageMargePrevu);
+
+                var pourcentageMargeReel = (margeValeurReel * 100) / prixVente;
+                $('#hei_margebundle_chantier_pourcentageMargeReel').val(pourcentageMargeReel);
+
+                //Marge / Jour
+                var nbJourCharpentePrevu    = +$('#hei_margebundle_chantier_jourPrevuCharpente').val();
+                var nbJourCharpenteReel     = +$('#hei_margebundle_chantier_jourReelCharpente').val();
+
+                var nbJourFinitionsPrevu    = +$('#hei_margebundle_chantier_jourPrevuFinitions').val();
+                var nbJourFinitionsReel     = +$('#hei_margebundle_chantier_jourReelFinitions').val();
+
+                var margeJourPrevu = margeValeurPrevu / (nbJourCharpentePrevu + nbJourFinitionsPrevu);
+                $('#hei_margebundle_chantier_margeJourPrevu').val(margeJourPrevu);
+
+                var margeJourReel = margeValeurReel / (nbJourCharpenteReel + nbJourFinitionsReel);
+                $('#hei_margebundle_chantier_margeJourReel').val(margeJourReel);
+            });
+        });
+    </script>
+{% endblock %}

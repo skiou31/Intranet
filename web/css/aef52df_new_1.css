@@ -1,0 +1,9 @@
+table, th, td {
+    border: 1px solid blue;
+    border-collapse: collapse;
+}
+
+caption {
+    caption-side: unset;
+    padding: unset;
+}

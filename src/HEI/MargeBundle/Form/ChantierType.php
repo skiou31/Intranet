@@ -2,9 +2,19 @@
 
 namespace HEI\MargeBundle\Form;
 
+use HEI\ContactBundle\Entity\Contact;
+use HEI\UserBundle\Entity\User;
+use HEI\MargeBundle\Entity\Equipe;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\DataTransformer\NumberToLocalizedStringTransformer;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class ChantierType extends AbstractType
 {
@@ -13,63 +23,136 @@ class ChantierType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $currentDate = new \DateTime();
+        $contact = $options['contact'];
+        $commercial = $contact->getCommercial();
+
         $builder
-            ->add('typeChantier')
-            ->add('dateDebut')
-            ->add('dateFin')
-            ->add('prixVente')
-            ->add('montantCommission')
-            ->add('commissionSupplementaire')
-            ->add('montantCommissionSuplementaire')
-            ->add('equipe')
-            ->add('jourPrevuCharpente')
-            ->add('montantPrevuCharpente')
-            ->add('jourReelCharpente')
-            ->add('montantReelCharpente')
-            ->add('jourPrevuFinitions')
-            ->add('montantPrevuFinitions')
-            ->add('jourReelFinitions')
-            ->add('montantReelFinitions')
-            ->add('forfaitPrevuCharpente')
-            ->add('montantForfaitPrevuCharpente')
-            ->add('forfaitReelCharpente')
-            ->add('montantForfaitReelCharpente')
-            ->add('boisVeluxPrevu')
-            ->add('boisVeluxReel')
-            ->add('forfaitPrevuIsolation')
-            ->add('montantForfaitPrevuIsolation')
-            ->add('forfaitReelIsolation')
-            ->add('montantForfaitReelIsolation')
-            ->add('escalier')
-            ->add('escalierReel')
-            ->add('electricitePrevu')
-            ->add('electriciteReel')
-            ->add('isolationPrevu')
-            ->add('isolationReel')
-            ->add('veluxEtAccesPrevu')
-            ->add('veluxEtAccesReel')
-            ->add('plancherPrevu')
-            ->add('plancherReel')
-            ->add('placardPrevu')
-            ->add('placardReel')
-            ->add('plomberiePrevu')
-            ->add('plomberieReel')
-            ->add('parquetPrevu')
-            ->add('parquetReel')
-            ->add('peinturePrevu')
-            ->add('peintureReel')
-            ->add('portePrevu')
-            ->add('porteReel')
-            ->add('totalCoutsPrevu')
-            ->add('totalCoutsReel')
-            ->add('margeEnValeurPrevu')
-            ->add('margeEnValeurReel')
-            ->add('pourcentageMargePrevu')
-            ->add('pourcentageMargeReel')
-            ->add('margeJourPrevu')
-            ->add('margeJourReel')
-            ->add('contact')
-            ->add('commercial');
+            ->add('contact',                            TextType::class, array(
+                'data'  =>  $contact->getNom(),
+                'disabled'  =>  true
+            ))
+            ->add('typeChantier',                       ChoiceType::class, array(
+                'choices'   =>  array(
+                    'TRADI'     =>  'TRADI',
+                    'W'         =>  'W',
+                    '2eme Niv'  =>  '2eme Niv',
+                    'Pré-amen'  =>  'Pré-amen',
+                    'Velux'     =>  'Velux'
+                )
+            ))
+            ->add('dateDebut',                          DateType::class, array(
+                'widget'    =>  'choice',
+                'format'    =>  'dd/MM/yyyy',
+                'years' =>  array(
+                    $currentDate->format('Y'),
+                    $currentDate->format('Y')+1
+                ),
+            ))
+            ->add('dateFin',                            DateType::class, array(
+                'widget'    =>  'choice',
+                'format'    =>  'dd/MM/yyyy',
+                'years' =>  array(
+                    $currentDate->format('Y'),
+                    $currentDate->format('Y')+1
+                ),
+            ))
+            ->add('prixVente',                          NumberType::class)
+            ->add('commercial',                         TextType::class, array(
+                'data'  =>  $commercial->getPrenom(),
+                'disabled'  =>  true
+            ))
+            ->add('montantCommission',                  NumberType::class, array(
+                'disabled'  =>  true,
+            ))
+            ->add('commissionSupplementaire',           NumberType::class)
+            ->add('montantCommissionSuplementaire',     NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('equipe',                             EntityType::class, array(
+                'class' =>  Equipe::class,
+                'choice_label'  =>  'nom'
+            ))
+            ->add('jourPrevuCharpente',                 NumberType::class)
+            ->add('montantPrevuCharpente',              NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('jourReelCharpente',                  NumberType::class)
+            ->add('montantReelCharpente',               NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('jourPrevuFinitions',                 NumberType::class)
+            ->add('montantPrevuFinitions',              NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('jourReelFinitions',                  NumberType::class)
+            ->add('montantReelFinitions',               NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('forfaitPrevuCharpente',              NumberType::class)
+            ->add('montantForfaitPrevuCharpente',       NumberType::class, array(
+                'disabled'  =>  true,
+            ))
+            ->add('forfaitReelCharpente',               NumberType::class)
+            ->add('montantForfaitReelCharpente',        NumberType::class, array(
+                'disabled'  =>  true,
+            ))
+            ->add('boisVeluxPrevu',                     NumberType::class)
+            ->add('boisVeluxReel',                      NumberType::class)
+            ->add('forfaitPrevuIsolation',              NumberType::class)
+            ->add('montantForfaitPrevuIsolation',       NumberType::class, array(
+                'disabled'  =>  true,
+            ))
+            ->add('forfaitReelIsolation',               NumberType::class)
+            ->add('montantForfaitReelIsolation',        NumberType::class, array(
+                'disabled'  =>  true,
+            ))
+            ->add('escalier',                           NumberType::class)
+            ->add('escalierReel',                       NumberType::class)
+            ->add('electricitePrevu',                   NumberType::class)
+            ->add('electriciteReel',                    NumberType::class)
+            ->add('isolationPrevu',                     NumberType::class)
+            ->add('isolationReel',                      NumberType::class)
+            ->add('veluxEtAccesPrevu',                  NumberType::class)
+            ->add('veluxEtAccesReel',                   NumberType::class)
+            ->add('plancherPrevu',                      NumberType::class)
+            ->add('plancherReel',                       NumberType::class)
+            ->add('placardPrevu',                       NumberType::class)
+            ->add('placardReel',                        NumberType::class)
+            ->add('plomberiePrevu',                     NumberType::class)
+            ->add('plomberieReel',                      NumberType::class)
+            ->add('parquetPrevu',                       NumberType::class)
+            ->add('parquetReel',                        NumberType::class)
+            ->add('peinturePrevu',                      NumberType::class)
+            ->add('peintureReel',                       NumberType::class)
+            ->add('portePrevu',                         NumberType::class)
+            ->add('porteReel',                          NumberType::class)
+            ->add('totalCoutsPrevu',                    NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('totalCoutsReel',                     NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('margeEnValeurPrevu',                 NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('margeEnValeurReel',                  NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('pourcentageMargePrevu',              NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('pourcentageMargeReel',               NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('margeJourPrevu',                     NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('margeJourReel',                      NumberType::class, array(
+                'disabled'  =>  true
+            ))
+            ->add('save',                               SubmitType::class)
+        ;
     }
 
     /**
@@ -80,6 +163,7 @@ class ChantierType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => 'HEI\MargeBundle\Entity\Chantier'
         ));
+        $resolver->setRequired(['contact']);
     }
 
     /**

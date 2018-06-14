@@ -358,6 +358,20 @@ class Chantier
     /**
      * @var int
      *
+     * @ORM\Column(name="bennePrevu", type="integer")
+     */
+    private $bennePrevu;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="benneReel", type="integer")
+     */
+    private $benneReel;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="totalCoutsPrevu", type="integer")
      */
     private $totalCoutsPrevu;
@@ -1717,5 +1731,52 @@ class Chantier
     {
         return $this->margeJourReel;
     }
-}
 
+    /**
+     * Set contact
+     *
+     * @param \HEI\ContactBundle\Entity\Contact $contact
+     *
+     * @return Chantier
+     */
+    public function setContact(\HEI\ContactBundle\Entity\Contact $contact)
+    {
+        $this->contact = $contact;
+
+        return $this;
+    }
+
+    /**
+     * Get contact
+     *
+     * @return \HEI\ContactBundle\Entity\Contact
+     */
+    public function getContact()
+    {
+        return $this->contact;
+    }
+
+    /**
+     * Set commercial
+     *
+     * @param \HEI\UserBundle\Entity\User $commercial
+     *
+     * @return Chantier
+     */
+    public function setCommercial(\HEI\UserBundle\Entity\User $commercial)
+    {
+        $this->commercial = $commercial;
+
+        return $this;
+    }
+
+    /**
+     * Get commercial
+     *
+     * @return \HEI\UserBundle\Entity\User
+     */
+    public function getCommercial()
+    {
+        return $this->commercial;
+    }
+}

@@ -358,6 +358,20 @@ class Chantier
     /**
      * @var int
      *
+     * @ORM\Column(name="bennePrevu", type="integer")
+     */
+    private $bennePrevu;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="benneReel", type="integer")
+     */
+    private $benneReel;
+
+    /**
+     * @var int
+     *
      * @ORM\Column(name="totalCoutsPrevu", type="integer")
      */
     private $totalCoutsPrevu;
@@ -1764,5 +1778,53 @@ class Chantier
     public function getCommercial()
     {
         return $this->commercial;
+    }
+
+    /**
+     * Set bennePrevu
+     *
+     * @param integer $bennePrevu
+     *
+     * @return Chantier
+     */
+    public function setBennePrevu($bennePrevu)
+    {
+        $this->bennePrevu = $bennePrevu;
+
+        return $this;
+    }
+
+    /**
+     * Get bennePrevu
+     *
+     * @return integer
+     */
+    public function getBennePrevu()
+    {
+        return $this->bennePrevu;
+    }
+
+    /**
+     * Set benneReel
+     *
+     * @param integer $benneReel
+     *
+     * @return Chantier
+     */
+    public function setBenneReel($benneReel)
+    {
+        $this->benneReel = $benneReel;
+
+        return $this;
+    }
+
+    /**
+     * Get benneReel
+     *
+     * @return integer
+     */
+    public function getBenneReel()
+    {
+        return $this->benneReel;
     }
 }

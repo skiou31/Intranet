@@ -402,6 +402,27 @@
                 </div>
             </td>
         </tr>
+        <tr>
+            <td>Benne</td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.bennePrevu) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+            <td></td>
+            <td>
+                <div class="input-group">
+                    {{ form_widget(form.benneReel) }}
+                    <div class="input-group-append">
+                        <div class="input-group-text">€</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
         </tbody>
     </table>
     <br>
@@ -602,9 +623,10 @@
                 var parquet         = +$('#hei_margebundle_chantier_parquetPrevu').val();
                 var peinture        = +$('#hei_margebundle_chantier_peinturePrevu').val();
                 var porte           = +$('#hei_margebundle_chantier_portePrevu').val();
+                var benne           = +$('#hei_margebundle_chantier_bennePrevu').val();
 
                 //Total des coûts prévu
-                var totalCoutsPrevu = commission+commissionSupp+charpente+finitions+ffCharpente+boisVelux+ffIsolation+escalier+electricite+isolation+veluxEtAcces+plancher+placard+plomberie+parquet+peinture+porte;
+                var totalCoutsPrevu = commission+commissionSupp+charpente+finitions+ffCharpente+boisVelux+ffIsolation+escalier+electricite+isolation+veluxEtAcces+plancher+placard+plomberie+parquet+peinture+porte+benne;
                 $('#hei_margebundle_chantier_totalCoutsPrevu').val(totalCoutsPrevu);
 
                 //Stockage des coûts réel
@@ -623,9 +645,10 @@
                 var parquetReel         = +$('#hei_margebundle_chantier_parquetReel').val();
                 var peintureReel        = +$('#hei_margebundle_chantier_peintureReel').val();
                 var porteReel           = +$('#hei_margebundle_chantier_porteReel').val();
+                var benneReel           = +$('#hei_margebundle_chantier_benneReel').val();
 
                 //Total des coûts réel
-                var totalCoutsReel = commission+commissionSupp+charpenteReel+finitionsReel+ffCharpenteReel+boisVeluxReel+ffIsolationReel+escalierReel+electriciteReel+isolationReel+veluxEtAccesReel+plancherReel+placardReel+plomberieReel+parquetReel+peintureReel+porteReel;
+                var totalCoutsReel = commission+commissionSupp+charpenteReel+finitionsReel+ffCharpenteReel+boisVeluxReel+ffIsolationReel+escalierReel+electriciteReel+isolationReel+veluxEtAccesReel+plancherReel+placardReel+plomberieReel+parquetReel+peintureReel+porteReel+benneReel;
                 $('#hei_margebundle_chantier_totalCoutsReel').val(totalCoutsReel);
 
                 //Marge en valeur
@@ -639,10 +662,12 @@
 
                 //Pourcentage de marge
                 var pourcentageMargePrevu = (margeValeurPrevu * 100) / prixVente;
-                $('#hei_margebundle_chantier_pourcentageMargePrevu').val(pourcentageMargePrevu);
+                // var pourcentageMargePrevu = Math.floor((margeValeurPrevu * 100) / prixVente);
+                $('#hei_margebundle_chantier_pourcentageMargePrevu').val(precise(pourcentageMargePrevu));
 
                 var pourcentageMargeReel = (margeValeurReel * 100) / prixVente;
-                $('#hei_margebundle_chantier_pourcentageMargeReel').val(pourcentageMargeReel);
+                // var pourcentageMargeReel = Math.floor((margeValeurReel * 100) / prixVente);
+                $('#hei_margebundle_chantier_pourcentageMargeReel').val(precise(pourcentageMargeReel));
 
                 //Marge / Jour
                 var nbJourCharpentePrevu    = +$('#hei_margebundle_chantier_jourPrevuCharpente').val();
@@ -651,12 +676,17 @@
                 var nbJourFinitionsPrevu    = +$('#hei_margebundle_chantier_jourPrevuFinitions').val();
                 var nbJourFinitionsReel     = +$('#hei_margebundle_chantier_jourReelFinitions').val();
 
-                var margeJourPrevu = margeValeurPrevu / (nbJourCharpentePrevu + nbJourFinitionsPrevu);
+                var margeJourPrevu = Math.floor(margeValeurPrevu / (nbJourCharpentePrevu + nbJourFinitionsPrevu));
                 $('#hei_margebundle_chantier_margeJourPrevu').val(margeJourPrevu);
 
-                var margeJourReel = margeValeurReel / (nbJourCharpenteReel + nbJourFinitionsReel);
+                var margeJourReel = Math.floor(margeValeurReel / (nbJourCharpenteReel + nbJourFinitionsReel));
                 $('#hei_margebundle_chantier_margeJourReel').val(margeJourReel);
+
             });
+
+            function precise(x) {
+                return Number.parseFloat(x).toPrecision(4);
+            }
         });
     </script>
 {% endblock %}

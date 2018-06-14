@@ -127,6 +127,8 @@ class ChantierType extends AbstractType
             ->add('peintureReel',                       NumberType::class)
             ->add('portePrevu',                         NumberType::class)
             ->add('porteReel',                          NumberType::class)
+            ->add('bennePrevu',                         NumberType::class)
+            ->add('benneReel',                          NumberType::class)
             ->add('totalCoutsPrevu',                    NumberType::class, array(
                 'disabled'  =>  true
             ))

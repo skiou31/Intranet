@@ -37,3 +37,4 @@ security:
     - { path: ^/admin/, role: ROLE_ADMIN }
     - { path: ^/register$, role: ROLE_DIRECTION }
     - { path: ^/gestion/, role: ROLE_DIRECTION }
+    - { path: ^/marge/, role: ROLE_DIRECTION}

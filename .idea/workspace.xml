@@ -26,34 +26,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MargeController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Controller/MargeController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="719">
-              <caret line="49" column="42" lean-forward="false" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
-              <folding>
-                <element signature="e#130#166#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ChantierType.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChantierType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="133" column="14" lean-forward="false" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Chantier.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Entity/Chantier.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="369" column="23" lean-forward="false" selection-start-line="369" selection-start-column="23" selection-end-line="369" selection-end-column="23" />
-              <folding />
+            <state relative-caret-position="374">
+              <caret line="160" column="23" lean-forward="false" selection-start-line="160" selection-start-column="23" selection-end-line="160" selection-end-column="23" />
+              <folding>
+                <element signature="e#40#77#0#PHP" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,15 +41,41 @@
       <file leaf-file-name="new.html.twig" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Resources/views/Default/new.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5644">
-              <caret line="517" column="0" lean-forward="false" selection-start-line="517" selection-start-column="0" selection-end-line="517" selection-end-column="0" />
+            <state relative-caret-position="10540">
+              <caret line="620" column="87" lean-forward="false" selection-start-line="620" selection-start-column="86" selection-end-line="620" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChampSuppType.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChampSuppType.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
               <folding>
-                <element signature="e#548#1151#0#HTML" expanded="false" />
-                <element signature="e#1242#2432#0#HTML" expanded="false" />
-                <element signature="e#2568#4534#0#HTML" expanded="false" />
-                <element signature="e#14554#17405#0#HTML" expanded="false" />
-                <element signature="e#17619#28715#0#HTML" expanded="false" />
+                <element signature="e#40#80#0#PHP" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Chantier.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Entity/Chantier.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="1852" column="32" lean-forward="false" selection-start-line="1852" selection-start-column="32" selection-end-line="1852" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ChampSupp.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Entity/ChampSupp.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="45" column="92" lean-forward="false" selection-start-line="45" selection-start-column="92" selection-end-line="45" selection-end-column="92" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,6 +118,7 @@
       <find>current</find>
       <find>getPour</find>
       <find>bennePrevu</find>
+      <find>caté</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -121,10 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$USER_HOME$/Desktop/countdown/index.html" />
-        <option value="$PROJECT_DIR$/web/app_dev.php" />
-        <option value="$USER_HOME$/Downloads/prospect.php" />
-        <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Controller/FileController.php" />
         <option value="$PROJECT_DIR$/src/HEI/ContactBundle/Entity/File.php" />
         <option value="$PROJECT_DIR$/../amenago/form_Harnois.php" />
         <option value="$PROJECT_DIR$/../amenago/modification.php" />
@@ -146,7 +149,6 @@
         <option value="$PROJECT_DIR$/web/config.php" />
         <option value="$PROJECT_DIR$/.ovhconfig" />
         <option value="$PROJECT_DIR$/web/app.php" />
-        <option value="$PROJECT_DIR$/app/config/security.yml" />
         <option value="$PROJECT_DIR$/src/HEI/CoreBundle/Resources/views/core/test.html.twig" />
         <option value="$PROJECT_DIR$/src/HEI/CoreBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
@@ -168,9 +170,14 @@
         <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Controller/MargeController.php" />
         <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Resources/views/layout.html.twig" />
         <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Resources/public/css/new.css" />
-        <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChantierType.php" />
-        <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Entity/Chantier.php" />
         <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Resources/public/js/new.js" />
+        <option value="$PROJECT_DIR$/../bookshop-api/.env" />
+        <option value="$PROJECT_DIR$/app/config/security.yml" />
+        <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChampSupp.php" />
+        <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChampSuppType.php" />
+        <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Entity/ChampSupp.php" />
+        <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Entity/Chantier.php" />
+        <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChantierType.php" />
         <option value="$PROJECT_DIR$/src/HEI/MargeBundle/Resources/views/Default/new.html.twig" />
       </list>
     </option>
@@ -235,10 +242,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1359" />
-    <option name="y" value="-313" />
-    <option name="width" value="1208" />
-    <option name="height" value="1047" />
+    <option name="x" value="1358" />
+    <option name="y" value="-321" />
+    <option name="width" value="974" />
+    <option name="height" value="527" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -308,14 +315,6 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="MargeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Intranet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Intranet" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MargeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -333,25 +332,6 @@
               <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="MargeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Intranet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Intranet" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MargeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Intranet" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Intranet" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="HEI" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="MargeBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="css" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="Intranet" type="b2602c69:ProjectViewProjectNode" />
@@ -383,7 +363,7 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../amenago" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../bookshop-api" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
@@ -508,16 +488,18 @@
       <workItem from="1528876677089" duration="6179000" />
       <workItem from="1528896691650" duration="12983000" />
       <workItem from="1528959082261" duration="7325000" />
+      <workItem from="1529070114349" duration="2294000" />
+      <workItem from="1529329876575" duration="6261000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="447666000" />
+    <option name="totallyTimeSpent" value="456221000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-321" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20309168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20735608" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30108696" sideWeight="0.19829424" order="8" side_tool="true" content_ui="tabs" />
@@ -525,7 +507,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29565218" sideWeight="0.8017058" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26956522" sideWeight="0.8017058" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -554,42 +536,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/var/logs/prod.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="44" column="67" lean-forward="true" selection-start-line="44" selection-start-column="67" selection-end-line="44" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.ovhconfig" />
-    <entry file="file://$PROJECT_DIR$/vendor/easycorp/easyadmin-bundle/tests/Fixtures/App/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/symfony/symfony/src/Symfony/Component/HttpKernel/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="44" column="15" lean-forward="false" selection-start-line="44" selection-start-column="15" selection-end-line="44" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/AppKernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -630,13 +576,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="48" lean-forward="false" selection-start-line="38" selection-start-column="48" selection-end-line="38" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -832,29 +771,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Resources/public/css/new.css" />
-    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Entity/Chantier.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="369" column="23" lean-forward="false" selection-start-line="369" selection-start-column="23" selection-end-line="369" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Controller/MargeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="719">
+        <state relative-caret-position="697">
           <caret line="49" column="42" lean-forward="false" selection-start-line="49" selection-start-column="42" selection-end-line="49" selection-end-column="42" />
-          <folding>
-            <element signature="e#130#166#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChantierType.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="133" column="14" lean-forward="false" selection-start-line="133" selection-start-column="14" selection-end-line="133" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -862,7 +782,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -870,29 +789,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" column="12" lean-forward="false" selection-start-line="12" selection-start-column="12" selection-end-line="18" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Resources/public/js/new.js" />
+    <entry file="file://$PROJECT_DIR$/../bookshop-api/.env.dist" />
+    <entry file="file://$PROJECT_DIR$/../bookshop-api/.env" />
+    <entry file="file://$PROJECT_DIR$/app/config/security.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="39" column="45" lean-forward="false" selection-start-line="39" selection-start-column="45" selection-end-line="39" selection-end-column="45" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Resources/public/js/new.js">
+    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChampSupp.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="77" column="57" lean-forward="true" selection-start-line="77" selection-start-column="57" selection-end-line="77" selection-end-column="57" />
+        <state relative-caret-position="374">
+          <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Entity/Valeur_defaut.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Entity/ChampSupp.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="45" column="92" lean-forward="false" selection-start-line="45" selection-start-column="92" selection-end-line="45" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Entity/Chantier.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="1852" column="32" lean-forward="false" selection-start-line="1852" selection-start-column="32" selection-end-line="1852" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChampSuppType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="19" column="48" lean-forward="false" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding>
+            <element signature="e#40#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Form/ChantierType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="160" column="23" lean-forward="false" selection-start-line="160" selection-start-column="23" selection-end-line="160" selection-end-column="23" />
+          <folding>
+            <element signature="e#40#77#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HEI/MargeBundle/Resources/views/Default/new.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5644">
-          <caret line="517" column="0" lean-forward="false" selection-start-line="517" selection-start-column="0" selection-end-line="517" selection-end-column="0" />
-          <folding>
-            <element signature="e#548#1151#0#HTML" expanded="false" />
-            <element signature="e#1242#2432#0#HTML" expanded="false" />
-            <element signature="e#2568#4534#0#HTML" expanded="false" />
-            <element signature="e#14554#17405#0#HTML" expanded="false" />
-            <element signature="e#17619#28715#0#HTML" expanded="false" />
-          </folding>
+        <state relative-caret-position="10540">
+          <caret line="620" column="87" lean-forward="false" selection-start-line="620" selection-start-column="86" selection-end-line="620" selection-end-column="87" />
+          <folding />
         </state>
       </provider>
     </entry>

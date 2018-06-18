@@ -370,6 +370,11 @@ class Chantier
     private $benneReel;
 
     /**
+     * @ORM\OneToMany(targetEntity="HEI\MargeBundle\Entity\ChampSupp", mappedBy="chantier")
+     */
+    private $champSupps;
+
+    /**
      * @var int
      *
      * @ORM\Column(name="totalCoutsPrevu", type="integer")
@@ -1826,5 +1831,47 @@ class Chantier
     public function getBenneReel()
     {
         return $this->benneReel;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->champSupps = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add champSupp
+     *
+     * @param \HEI\MargeBundle\Entity\ChampSupp $champSupp
+     *
+     * @return Chantier
+     */
+    public function addChampSupp(\HEI\MargeBundle\Entity\ChampSupp $champSupp)
+    {
+        $this->champSupps[] = $champSupp;
+        $champSupp->setChantier($this);
+
+        return $this;
+    }
+
+    /**
+     * Remove champSupp
+     *
+     * @param \HEI\MargeBundle\Entity\ChampSupp $champSupp
+     */
+    public function removeChampSupp(\HEI\MargeBundle\Entity\ChampSupp $champSupp)
+    {
+        $this->champSupps->removeElement($champSupp);
+    }
+
+    /**
+     * Get champSupps
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChampSupps()
+    {
+        return $this->champSupps;
     }
 }

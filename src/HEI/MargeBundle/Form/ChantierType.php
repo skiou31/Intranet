@@ -15,6 +15,8 @@ use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use HEI\MargeBundle\Form\ChampSuppType;
 
 class ChantierType extends AbstractType
 {
@@ -152,6 +154,11 @@ class ChantierType extends AbstractType
             ))
             ->add('margeJourReel',                      NumberType::class, array(
                 'disabled'  =>  true
+            ))
+            ->add('champSupps',                         CollectionType::class, array(
+                'entry_type'    =>  ChampSuppType::class,
+                'allow_add' =>  true,
+                'allow_delete'  =>  true
             ))
             ->add('save',                               SubmitType::class)
         ;

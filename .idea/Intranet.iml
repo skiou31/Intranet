@@ -61,5 +61,6 @@
     <orderEntry type="module" module-name="BinanceFolio" />
     <orderEntry type="module" module-name="countdown" />
     <orderEntry type="module" module-name="amenago" />
+    <orderEntry type="module" module-name="bookshop-api" />
   </component>
 </module>
